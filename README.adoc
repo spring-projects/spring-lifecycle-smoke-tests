@@ -24,7 +24,7 @@ for example
 
 [source,]
 ----
-./gradlew :boot:actuator-webmvc:build
+./gradlew :framework:webmvc-tomcat:build
 ----
 
 === Run a specific type of tests for a project
@@ -43,7 +43,7 @@ for example
 
 [source,]
 ----
-./gradlew :boot:actuator-webmvc:appTest
+./gradlew :framework:webmvc-tomcat:appTest
 ----
 
 === Add a new smoke test
@@ -72,10 +72,10 @@ You can now consume those snapshots using `-PfromMavenLocal` which takes a comma
 
 [source,]
 ----
-./gradlew :rest-template:build -PfromMavenLocal=org.springframework,org.springframework.data
+./gradlew :framework:webmvc-tomcat:build -PfromMavenLocal=org.springframework
 ----
 
-The preceding example will run the `rest-template` smoke test, resolving Spring Framework and Spring Data modules from your local Maven cache.
+The preceding example will run the `rest-template` smoke test, resolving Spring Framework from your local Maven cache.
 
 === Override a dependency version
 
