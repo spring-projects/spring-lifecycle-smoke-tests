@@ -1,0 +1,47 @@
+plugins {
+	id "checkstyle"
+	id "io.spring.javaformat"
+	id "java-gradle-plugin"
+}
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/milestone" }
+	maven { url "https://repo.spring.io/snapshot" }
+}
+
+gradlePlugin {
+	plugins {
+		crSmokeTestPlugin {
+			id = "org.springframework.cr.smoke-test"
+			implementationClass = "org.springframework.cr.gradle.CrSmokeTestPlugin"
+		}
+		crSmokeTestAggregatorPlugin {
+			id = "org.springframework.cr.smoke-test-aggregator"
+			implementationClass = "org.springframework.cr.gradle.CrSmokeTestAggregatorPlugin"
+		}
+	}
+}
+
+new File(rootDir.parentFile.parentFile.parentFile, "gradle.properties").withInputStream {
+	def properties = new Properties()
+	properties.load(it)
+	properties.each { key, value ->
+		if (key.endsWith("Version")) {
+			project.ext.set(key, value)
+		}
+	}
+}
+
+dependencies {
+	checkstyle("io.spring.javaformat:spring-javaformat-checkstyle:$javaFormatVersion")
+
+	compileOnly("io.spring.javaformat:spring-javaformat-gradle-plugin:$javaFormatVersion")
+	compileOnly("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+	compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+
+	implementation("com.avast.gradle:gradle-docker-compose-plugin:0.16.8")
+}
+
+sourceCompatibility = "17"
+targetCompatibility = "17"

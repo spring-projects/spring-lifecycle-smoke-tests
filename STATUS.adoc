@@ -1,0 +1,18 @@
+= Smoke Tests Status
+:toc:
+:toc-title: Projects
+
+== Framework
+
+[%header,cols="3"]
+|===
+h|Smoke Test
+h|appTest
+h|test
+
+|webmvc-tomcat
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-app-test]
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-test]
+
+|===
+

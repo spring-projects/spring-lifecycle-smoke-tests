@@ -1,0 +1,6 @@
+groups:
+  - name: framework
+    smoke_tests:
+     - name: webmvc-tomcat
+       app_test: true
+       test: true

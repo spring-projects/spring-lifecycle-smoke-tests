@@ -1,0 +1,97 @@
+= Spring Checkpoint Restore Smoke Tests
+
+A suite of tests for applications using checkpoint/restore as implemented by https://github.com/CRaC/docs[Project CRaC] and as documented in https://docs.spring.io/spring-framework/reference/6.1/integration/checkpoint-restore.html[Spring Framework reference documentation].
+There are two types of tests: unit tests and application tests.
+
+Unit tests can be run using the `test` task.
+
+The `appTest` task tests the application running on the JVM.
+
+== Contributing
+
+Please read and follow the link:CONTRIBUTING.adoc[contributing guide].
+
+== How to
+
+=== Run all of a project's smoke tests
+
+[source,]
+----
+./gradlew :<name of the group>:<name of the smoke test>:build
+----
+
+for example
+
+[source,]
+----
+./gradlew :boot:actuator-webmvc:build
+----
+
+=== Run a specific type of tests for a project
+
+[source,]
+----
+./gradlew :<name of the group>:<name of the smoke test>:<test task name>
+----
+
+Valid test task names are:
+
+1. `appTest` – tests the application running on the JVM
+2. `test` – executes the unit tests on the JVM
+
+for example
+
+[source,]
+----
+./gradlew :boot:actuator-webmvc:appTest
+----
+
+=== Add a new smoke test
+
+1. Create a new directory for your smoke test in the appropriate group
+2. Include the directory in `settings.gradle` (new groups only)
+3. Run `./gradlew updateInfrastructure` to add the smoke test to the status page and CI pipeline
+
+=== Test against local changes
+
+==== Your project uses Gradle
+
+[source,]
+----
+./gradlew :<name of the group>:<name of the smoke test>:build --include-build /path/to/your/project
+----
+
+Gradle https://docs.gradle.org/current/userguide/composite_builds.html#command_line_composite[will then substitute the dependency] with your provided version.
+
+_Hint: You can use `--include-build` multiple times._
+
+==== Your project uses Maven or --include-build does not work
+
+First, install the snapshots into your local Maven cache.
+You can now consume those snapshots using `-PfromMavenLocal` which takes a comma-separated list of group IDs:
+
+[source,]
+----
+./gradlew :rest-template:build -PfromMavenLocal=org.springframework,org.springframework.data
+----
+
+The preceding example will run the `rest-template` smoke test, resolving Spring Framework and Spring Data modules from your local Maven cache.
+
+=== Override a dependency version
+
+As the test doesn't use the Spring Dependency Management Plugin, you can't use the `ext['...'] = '...'` method.
+
+Instead, use https://docs.gradle.org/current/userguide/dependency_constraints.html[Gradle dependency constraints].
+Say, for example, you want to update the version of Spring Session JDBC to `3.0.0-SNAPSHOT`:
+
+[source,]
+----
+dependencies {
+    // ...
+    constraints {
+        implementation('org.springframework.session:spring-session-jdbc:3.0.0-SNAPSHOT')
+    }
+}
+----
+
+This works for direct and transitive dependencies.
