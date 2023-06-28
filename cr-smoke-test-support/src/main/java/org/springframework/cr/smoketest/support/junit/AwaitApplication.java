@@ -48,7 +48,9 @@ class AwaitApplication implements BeforeAllCallback {
 		while (System.currentTimeMillis() < end) {
 			lines = output.lines();
 			for (String line : lines) {
-				// TODO Either change logging of DefaultLifecycleProcessor.CracResourceAdapter.afterRestore to INFO or add INFO logging on restore on Spring Boot side
+				// TODO Either change logging of
+				// DefaultLifecycleProcessor.CracResourceAdapter.afterRestore to INFO or
+				// add INFO logging on restore on Spring Boot side
 				if (this.APPLICATION_STARTED.matcher(line).find() || this.WEB_SERVER_STARTED.matcher(line).find()) {
 					return;
 				}
