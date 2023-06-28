@@ -44,6 +44,8 @@ import org.springframework.boot.gradle.tasks.bundling.BootJar;
 import org.springframework.cr.gradle.dsl.CrSmokeTestExtension;
 import org.springframework.cr.gradle.tasks.AppTest;
 import org.springframework.cr.gradle.tasks.DescribeSmokeTests;
+import org.springframework.cr.gradle.tasks.RestoreJvmApplication;
+import org.springframework.cr.gradle.tasks.StartAndCheckpointJvmApplication;
 import org.springframework.cr.gradle.tasks.StartApplication;
 import org.springframework.cr.gradle.tasks.StartJvmApplication;
 import org.springframework.cr.gradle.tasks.StopApplication;
@@ -109,6 +111,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 
 	private void configureAppTests(Project project, CrSmokeTestExtension extension, SourceSet appTest) {
 		configureJvmAppTests(project, appTest, extension);
+		configureJvmCrAppTests(project, appTest, extension);
 	}
 
 	private void configureTests(Project project) {
@@ -131,13 +134,27 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 		configureTasks(project, sourceSet, ApplicationType.JVM, archiveFile, extension);
 	}
 
+	private void configureJvmCrAppTests(Project project, SourceSet sourceSet, CrSmokeTestExtension extension) {
+		Provider<RegularFile> archiveFile = project.getTasks()
+				.named(SpringBootPlugin.BOOT_JAR_TASK_NAME, BootJar.class)
+				.flatMap(BootJar::getArchiveFile);
+		configureTasks(project, sourceSet, ApplicationType.JVM_CHECKPOINT_RESTORE, archiveFile, extension);
+	}
+
 	private TaskProvider<AppTest> configureTasks(Project project, SourceSet appTest, ApplicationType type,
-			Provider<RegularFile> nativeImage, CrSmokeTestExtension extension) {
+			Provider<RegularFile> applicationBinary, CrSmokeTestExtension extension) {
+		String dir = switch (type) {
+			case JVM -> "jvmApp";
+			case JVM_CHECKPOINT_RESTORE -> "jvmCrApp";
+		};
 		Provider<Directory> outputDirectory = project.getLayout()
 				.getBuildDirectory()
-				.dir(type.name().toLowerCase() + "App");
-		TaskProvider<? extends StartApplication> startTask = createStartApplicationTask(project, type, nativeImage,
+				.dir(dir);
+		TaskProvider<? extends StartApplication> startTask = createStartApplicationTask(project, type, applicationBinary,
 				outputDirectory, extension);
+		if (type == ApplicationType.JVM_CHECKPOINT_RESTORE) {
+			startTask = createRestoreApplicationTask(project, applicationBinary, outputDirectory, startTask, extension);
+		}
 		TaskProvider<StopApplication> stopTask = createStopApplicationTask(project, type, startTask);
 		TaskProvider<AppTest> appTestTask = createAppTestTask(project, appTest, type, startTask, stopTask);
 		configureDockerComposeIfNecessary(project, type, startTask, appTestTask, stopTask);
@@ -180,10 +197,35 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 		});
 	}
 
+	private TaskProvider<? extends StartApplication> createRestoreApplicationTask(Project project,
+			Provider<RegularFile> applicationBinary, Provider<Directory> outputDirectory,
+			TaskProvider<? extends StartApplication> startTask, CrSmokeTestExtension extension) {
+		TaskProvider<? extends StartApplication> restoreTask = project.getTasks().register("restoreApp", RestoreJvmApplication.class, (restore) -> {
+			restore.getApplicationBinary().set(applicationBinary);
+			restore.getOutputDirectory().set(outputDirectory);
+			restore.setDescription("Restore the application.");
+			restore.getWebApplication().convention(extension.getWebApplication());
+		});
+		restoreTask.configure(restore -> {
+			restore.dependsOn(startTask);
+			// Delay needed to let the time for CRaC files to be created
+			restore.doFirst(action -> {
+				try {
+					Thread.sleep(2000);
+				}
+				catch (InterruptedException e) {
+					throw new RuntimeException(e);
+				}
+			});
+		});
+		return restoreTask;
+	}
+
 	private TaskProvider<StopApplication> createStopApplicationTask(Project project, ApplicationType type,
 			TaskProvider<? extends StartApplication> startTask) {
 		String taskName = switch (type) {
 			case JVM -> "stopApp";
+			case JVM_CHECKPOINT_RESTORE -> "stopCrApp";
 		};
 		TaskProvider<StopApplication> stopTask = project.getTasks()
 				.register(taskName, StopApplication.class, (stop) -> {
@@ -199,6 +241,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 			CrSmokeTestExtension extension) {
 		String taskName = switch (type) {
 			case JVM -> "startApp";
+			case JVM_CHECKPOINT_RESTORE -> "startAndCheckpointApp";
 		};
 		return project.getTasks().register(taskName, type.startTaskType, (start) -> {
 			start.getApplicationBinary().set(applicationBinary);
@@ -212,6 +255,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 			TaskProvider<? extends StartApplication> startTask, TaskProvider<StopApplication> stopTask) {
 		String taskName = switch (type) {
 			case JVM -> "appTest";
+			case JVM_CHECKPOINT_RESTORE -> "crAppTest";
 		};
 		TaskProvider<AppTest> appTestTask = project.getTasks().register(taskName, AppTest.class, (task) -> {
 			task.dependsOn(startTask);
@@ -235,7 +279,8 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 
 	private enum ApplicationType {
 
-		JVM("JVM", StartJvmApplication.class);
+		JVM("JVM", StartJvmApplication.class),
+		JVM_CHECKPOINT_RESTORE("JVM checkpoint/restore", StartAndCheckpointJvmApplication.class);;
 
 		private final String description;
 

@@ -33,10 +33,12 @@ import org.springframework.cr.smoketest.support.Output;
  */
 class AwaitApplication implements BeforeAllCallback {
 
-	private static final Duration START_TIMEOUT = Duration.ofSeconds(30);
+	private static final Duration START_TIMEOUT = Duration.ofSeconds(10);
 
-	private Pattern APPLICATION_STARTED = Pattern
+	private final Pattern APPLICATION_STARTED = Pattern
 		.compile("Started [A-Za-z0-9]+ in [0-9\\.]+ seconds \\(process running for [0-9\\.]+\\)");
+
+	private final Pattern WEB_SERVER_STARTED = Pattern.compile(" started on port");
 
 	@Override
 	public void beforeAll(ExtensionContext context) throws Exception {
@@ -46,13 +48,14 @@ class AwaitApplication implements BeforeAllCallback {
 		while (System.currentTimeMillis() < end) {
 			lines = output.lines();
 			for (String line : lines) {
-				if (this.APPLICATION_STARTED.matcher(line).find()) {
+				// TODO Either change logging of DefaultLifecycleProcessor.CracResourceAdapter.afterRestore to INFO or add INFO logging on restore on Spring Boot side
+				if (this.APPLICATION_STARTED.matcher(line).find() || this.WEB_SERVER_STARTED.matcher(line).find()) {
 					return;
 				}
 			}
 		}
 		StringBuilder message = new StringBuilder(
-				"Started log message was not detected within " + START_TIMEOUT + " in output:");
+				"Started log message was not detected within " + START_TIMEOUT.getSeconds() + "s in output:");
 		message.append("\n\n");
 		if (lines == null || lines.isEmpty()) {
 			message.append("<< none >>");

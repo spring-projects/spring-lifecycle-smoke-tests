@@ -25,6 +25,7 @@ plugins {
 rootProject.name="spring-checkpoint-restore-smoke-tests"
 
 include "cr-smoke-test-support"
+include "cr-listener"
 
 ["framework"].each { group ->
 	file(group).eachDirMatch(~/[a-z].*/) { smokeTest ->

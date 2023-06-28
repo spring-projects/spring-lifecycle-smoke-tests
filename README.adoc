@@ -5,7 +5,12 @@ There are two types of tests: unit tests and application tests.
 
 Unit tests can be run using the `test` task.
 
-The `appTest` task tests the application running on the JVM.
+The `appTest` task tests the application running on the JVM. The `crAppTest` task tests the application running on the JVM after a checkpoint/restore.
+
+== Prerequisites
+
+- CRaC enabled JDK such as https://www.azul.com/downloads/?package=jdk-crac#zulu[the one provided by Azul].
+- Linux
 
 == Contributing
 
@@ -37,7 +42,8 @@ for example
 Valid test task names are:
 
 1. `appTest` – tests the application running on the JVM
-2. `test` – executes the unit tests on the JVM
+2. `crAppTest` – tests the application running on the JVM after a checkpoint/restore
+3. `test` – executes the unit tests on the JVM
 
 for example
 
