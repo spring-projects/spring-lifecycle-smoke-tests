@@ -217,7 +217,6 @@ groups:
 #@   for smoke_test in group.smoke_tests:
 #@     if smoke_test.test:
 #@       tests.append(smoke_test.name + "-test")
-#@       tests.append(smoke_test.name + "-cr-test")
 #@     end
 #@   end
 #@   if len(tests) > 0:
