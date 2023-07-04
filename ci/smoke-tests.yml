@@ -1,6 +1,9 @@
 groups:
   - name: framework
     smoke_tests:
+     - name: webmvc-jetty
+       app_test: true
+       test: true
      - name: webmvc-tomcat
        app_test: true
        test: true

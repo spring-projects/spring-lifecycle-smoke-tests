@@ -1,0 +1,8 @@
+#@data/values-schema
+---
+groups:
+  - name: "group name"
+    smoke_tests:
+    - name: "smoke test name"
+      app_test: true
+      test: true
