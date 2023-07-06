@@ -132,8 +132,6 @@ jobs:
       privileged: true
       timeout: #@ task_timeout
       file: git-repo/ci/tasks/smoke-test.yml
-      tags:
-        - cr
       params:
         BRANCH: #@ branch
         SMOKE_TEST: #@ group.name + ":" + smoke_test.name
@@ -157,8 +155,6 @@ jobs:
       privileged: true
       timeout: #@ task_timeout
       file: git-repo/ci/tasks/smoke-test.yml
-      tags:
-        - cr
       params:
         BRANCH: #@ branch
         SMOKE_TEST: #@ group.name + ":" + smoke_test.name
@@ -184,8 +180,6 @@ jobs:
       privileged: true
       timeout: #@ task_timeout
       file: git-repo/ci/tasks/smoke-test.yml
-      tags:
-        - cr
       params:
         BRANCH: #@ branch
         SMOKE_TEST: #@ group.name + ":" + smoke_test.name
