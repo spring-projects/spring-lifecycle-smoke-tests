@@ -78,7 +78,7 @@ public abstract class UpdateStatusPage extends AbstractSmokeTestsTask {
 	private enum TestType {
 
 		APP_TEST(SmokeTest::appTests, "-app-test", "appTest"),
-		CR_APP_TEST(SmokeTest::appTests, "-cr-app-test", "crAppTest"),
+		CR_APP_TEST(SmokeTest::appTests, "-cr-app-test", "checkpointRestoreAppTest"),
 		TEST(SmokeTest::tests, "-test", "test");
 
 		private final Predicate<SmokeTest> predicate;

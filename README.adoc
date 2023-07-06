@@ -7,7 +7,7 @@ There are two types of tests: unit tests and application tests.
 
 Unit tests can be run using the `test` task.
 
-The `appTest` task tests the application running on the JVM. The `crAppTest` task tests the application running on the JVM after a checkpoint/restore.
+The `appTest` task tests the application running on the JVM. The `checkpointRestoreAppTest` (also available with the shorter `cRAT` task name) task tests the application running on the JVM after a checkpoint/restore.
 
 == Prerequisites
 
@@ -44,7 +44,7 @@ for example
 Valid test task names are:
 
 1. `appTest` – tests the application running on the JVM
-2. `crAppTest` – tests the application running on the JVM after a checkpoint/restore
+2. `checkpointRestoreAppTest` (also available with the shorter `cRAT` task name) – tests the application running on the JVM after a checkpoint/restore
 3. `test` – executes the unit tests on the JVM
 
 for example

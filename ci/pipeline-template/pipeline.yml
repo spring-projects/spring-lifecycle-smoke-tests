@@ -158,7 +158,7 @@ jobs:
       params:
         BRANCH: #@ branch
         SMOKE_TEST: #@ group.name + ":" + smoke_test.name
-        TASK: crAppTest
+        TASK: checkpointRestoreAppTest
         DOCKER_HUB_AUTH: ((docker-hub-auth))
         DOCKER_HUB_MIRROR: ((docker-hub-mirror))
         GRADLE_ENTERPRISE_ACCESS_KEY: ((gradle_enterprise_secret_access_key))

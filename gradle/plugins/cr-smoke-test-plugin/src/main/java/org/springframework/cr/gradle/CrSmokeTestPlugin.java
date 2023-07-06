@@ -255,7 +255,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 			TaskProvider<? extends StartApplication> startTask, TaskProvider<StopApplication> stopTask) {
 		String taskName = switch (type) {
 			case JVM -> "appTest";
-			case JVM_CHECKPOINT_RESTORE -> "crAppTest";
+			case JVM_CHECKPOINT_RESTORE -> "checkpointRestoreAppTest";
 		};
 		TaskProvider<AppTest> appTestTask = project.getTasks().register(taskName, AppTest.class, (task) -> {
 			task.dependsOn(startTask);

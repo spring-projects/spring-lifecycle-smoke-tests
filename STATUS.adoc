@@ -8,7 +8,7 @@
 |===
 h|Smoke Test
 h|appTest
-h|crAppTest
+h|checkpointRestoreAppTest
 h|test
 
 |webflux-undertow
