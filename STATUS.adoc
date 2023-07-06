@@ -10,6 +10,10 @@ h|Smoke Test
 h|appTest
 h|test
 
+|webmvc-jetty
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-app-test]
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-test]
+
 |webmvc-tomcat
 |image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-test]
