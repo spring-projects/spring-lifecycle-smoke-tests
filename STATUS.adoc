@@ -11,6 +11,11 @@ h|appTest
 h|crAppTest
 h|test
 
+|webflux-undertow
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-app-test]
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-cr-app-test]
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-test]
+
 |webmvc-jetty
 |image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-cr-app-test]

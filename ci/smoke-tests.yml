@@ -1,6 +1,9 @@
 groups:
   - name: framework
     smoke_tests:
+     - name: webflux-undertow
+       app_test: true
+       test: true
      - name: webmvc-jetty
        app_test: true
        test: true
