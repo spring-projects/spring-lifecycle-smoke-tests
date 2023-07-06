@@ -28,6 +28,7 @@ cd /opt/crac-jdk
 curl -L ${CRAC_JDK_URL} | tar zx --strip-components=1
 test -f /opt/crac-jdk/bin/java
 test -f /opt/crac-jdk/bin/javac
+echo 'ulimit -n 1024' >> /root/.bashrc
 
 ###########################################################
 # DOCKER
