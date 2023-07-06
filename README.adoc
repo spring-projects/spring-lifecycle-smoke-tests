@@ -1,3 +1,5 @@
+image:https://img.shields.io/badge/3.2.x-status-blue["Status", link="https://github.com/spring-projects/spring-checkpoint-restore-smoke-tests/blob/main/STATUS.adoc"]
+
 = Spring Checkpoint Restore Smoke Tests
 
 A suite of tests for applications using checkpoint/restore as implemented by https://github.com/CRaC/docs[Project CRaC] and as documented in https://docs.spring.io/spring-framework/reference/6.1/integration/checkpoint-restore.html[Spring Framework reference documentation].
