@@ -211,7 +211,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 			// Delay needed to let the time for CRaC files to be created
 			restore.doFirst(action -> {
 				try {
-					Thread.sleep(2000);
+					Thread.sleep(10000);
 				}
 				catch (InterruptedException e) {
 					throw new RuntimeException(e);
