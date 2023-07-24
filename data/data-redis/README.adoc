@@ -1,0 +1,1 @@
+Tests if Data Redis with Lettuce is working.
