@@ -8,3 +8,4 @@ bin/
 out/
 ci/pipeline.yml
 stats-restore
+.vscode/
