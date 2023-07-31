@@ -11,16 +11,19 @@ The `appTest` task tests the application running on the JVM. The `checkpointRest
 
 == Prerequisites
 
-=== Linux
+=== Linux or Windows via WSL2
 
 - CRaC enabled JDK such as https://www.azul.com/downloads/?package=jdk-crac#zulu[the one provided by Azul].
+- Docker to run external services such as database servers.
 
 > NOTE: If using SDKMan then run `sdk env install`.
 
-=== Mac Intel or Windows
+=== Mac
 
-- Docker
-- Use `./run-dev-container.sh` before running Gradle commands
+- https://github.com/abiosoft/colima[Colima] (don't forget to start it).
+- Use `./run-dev-container.sh` before running Gradle commands.
+
+> NOTE: Mac with Arm64 processors support running `appTest` and `cRAT` tasks (`test` and `build` currently fails with a segfault but are not critical for typical development workflow).
 
 == Contributing
 
