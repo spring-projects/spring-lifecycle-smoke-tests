@@ -41,7 +41,6 @@ class AwaitApplication implements BeforeAllCallback {
 	private final Pattern APPLICATION_RE_STARTED = Pattern
 		.compile("Spring-managed lifecycle restart completed in [0-9\\.]+ ms");
 
-	private final Pattern WEB_SERVER_STARTED = Pattern.compile(" started on port");
 
 	@Override
 	public void beforeAll(ExtensionContext context) throws Exception {
@@ -51,11 +50,7 @@ class AwaitApplication implements BeforeAllCallback {
 		while (System.currentTimeMillis() < end) {
 			lines = output.lines();
 			for (String line : lines) {
-				// TODO Either change logging of
-				// DefaultLifecycleProcessor.CracResourceAdapter.afterRestore to INFO or
-				// add INFO logging on restore on Spring Boot side
-				if (this.APPLICATION_STARTED.matcher(line).find() || this.WEB_SERVER_STARTED.matcher(line).find()
-						|| this.APPLICATION_RE_STARTED.matcher(line).find()) {
+				if (this.APPLICATION_STARTED.matcher(line).find() || this.APPLICATION_RE_STARTED.matcher(line).find()) {
 					return;
 				}
 			}
