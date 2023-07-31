@@ -10,3 +10,8 @@ groups:
      - name: webmvc-tomcat
        app_test: true
        test: true
+  - name: integration
+    smoke_tests:
+     - name: integration-basic
+       app_test: true
+       test: false
