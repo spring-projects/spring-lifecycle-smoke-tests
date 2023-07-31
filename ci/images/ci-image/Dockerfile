@@ -10,5 +10,3 @@ ENV PATH $JAVA_HOME/bin:/opt/ytt/bin:/opt/docker-compose/bin:$PATH
 ENV GRADLE_OPTS -Dorg.gradle.project.buildDir=/tmp/gradle-build
 RUN git config --global --add safe.directory /workspace
 ADD docker-lib.sh /docker-lib.sh
-
-ENTRYPOINT [ "switch", "shell=/bin/bash", "--", "codep", "/bin/docker daemon" ]

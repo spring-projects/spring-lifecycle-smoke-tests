@@ -39,17 +39,11 @@ curl -L ${DOCKER_URL} | tar zx
 mv /docker/* /bin/
 chmod +x /bin/docker*
 
-export ENTRYKIT_VERSION=0.4.0
-curl -L https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERSION}/entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz | tar zx
-chmod +x entrykit && \
-mv entrykit /bin/entrykit && \
-entrykit --symlink
-
 ###########################################################
 # DOCKER COMPOSE
 ###########################################################
 mkdir -p /opt/docker-compose/bin
-curl --location https://github.com/docker/compose/releases/download/1.29.2/docker-compose-linux-x86_64 > /opt/docker-compose/bin/docker-compose
+curl --location https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-linux-x86_64 > /opt/docker-compose/bin/docker-compose
 chmod +x /opt/docker-compose/bin/docker-compose
 
 ###########################################################
