@@ -4,7 +4,7 @@ REBUILD=false
 HOST_WORK_DIR="$( pwd )"
 CONTAINER_WORK_DIR=/workspace
 
-docker image ls | grep spring-checkpoint-restore-smoke-tests-dev | grep ${CONTAINER_TAG} >/dev/null 2>&1 || export REBUILD=true
+docker image ls | grep spring-checkpoint-restore-smoke-tests-dev >/dev/null 2>&1 || export REBUILD=true
 
 test "$REBUILD" = false || docker build \
   -t spring-checkpoint-restore-smoke-tests-dev -f $HOST_WORK_DIR/ci/images/ci-image/Dockerfile $HOST_WORK_DIR/ci/images
