@@ -38,7 +38,7 @@ class AwaitApplication implements BeforeAllCallback {
 	private final Pattern APPLICATION_STARTED = Pattern
 		.compile("Started [A-Za-z0-9]+ in [0-9\\.]+ seconds \\(process running for [0-9\\.]+\\)");
 
-	private final Pattern APPLIATION_RE_STARTED = Pattern
+	private final Pattern APPLICATION_RE_STARTED = Pattern
 		.compile("Spring-managed lifecycle restart completed in [0-9\\.]+ ms");
 
 	private final Pattern WEB_SERVER_STARTED = Pattern.compile(" started on port");
@@ -55,7 +55,7 @@ class AwaitApplication implements BeforeAllCallback {
 				// DefaultLifecycleProcessor.CracResourceAdapter.afterRestore to INFO or
 				// add INFO logging on restore on Spring Boot side
 				if (this.APPLICATION_STARTED.matcher(line).find() || this.WEB_SERVER_STARTED.matcher(line).find()
-						|| this.APPLIATION_RE_STARTED.matcher(line).find()) {
+						|| this.APPLICATION_RE_STARTED.matcher(line).find()) {
 					return;
 				}
 			}
