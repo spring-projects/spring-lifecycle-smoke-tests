@@ -41,7 +41,6 @@ class AwaitApplication implements BeforeAllCallback {
 	private final Pattern APPLICATION_RE_STARTED = Pattern
 		.compile("Spring-managed lifecycle restart completed in [0-9\\.]+ ms");
 
-
 	@Override
 	public void beforeAll(ExtensionContext context) throws Exception {
 		Output output = Output.current();
