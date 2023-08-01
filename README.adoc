@@ -23,8 +23,6 @@ The `appTest` task tests the application running on the JVM. The `checkpointRest
 - https://github.com/abiosoft/colima[Colima] (don't forget to start it).
 - Use `./run-dev-container.sh` before running Gradle commands.
 
-> NOTE: Mac with Arm64 processors support running `appTest` and `cRAT` tasks (`test` and `build` currently fails with a segfault but are not critical for typical development workflow).
-
 == Contributing
 
 Please read and follow the link:CONTRIBUTING.adoc[contributing guide].
