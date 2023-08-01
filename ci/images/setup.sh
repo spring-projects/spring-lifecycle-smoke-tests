@@ -9,7 +9,7 @@ export ARCH=$(uname -m)
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install --no-install-recommends -y tzdata ca-certificates net-tools libxml2-utils git curl libudev1 libxml2-utils iptables iproute2 jq unzip build-essential libz-dev libfreetype-dev
+apt-get install --no-install-recommends -y tzdata ca-certificates net-tools libxml2-utils git curl libudev1 libxml2-utils iptables iproute2 jq unzip build-essential libz-dev libfreetype-dev nano
 ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 rm -rf /var/lib/apt/lists/*
