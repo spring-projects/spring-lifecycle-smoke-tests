@@ -152,16 +152,19 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 				.dir(dir);
 		TaskProvider<? extends StartApplication> startTask = createStartApplicationTask(project, type, applicationBinary,
 				outputDirectory, extension);
+		TaskProvider<? extends StartApplication> checkpointTask = null;
 		if (type == ApplicationType.JVM_CHECKPOINT_RESTORE) {
+			checkpointTask = startTask;
 			startTask = createRestoreApplicationTask(project, applicationBinary, outputDirectory, startTask, extension);
 		}
 		TaskProvider<StopApplication> stopTask = createStopApplicationTask(project, type, startTask);
 		TaskProvider<AppTest> appTestTask = createAppTestTask(project, appTest, type, startTask, stopTask);
-		configureDockerComposeIfNecessary(project, type, startTask, appTestTask, stopTask);
+		configureDockerComposeIfNecessary(project, type, checkpointTask, startTask, appTestTask, stopTask);
 		return appTestTask;
 	}
 
 	private void configureDockerComposeIfNecessary(Project project, ApplicationType type,
+			TaskProvider<? extends StartApplication> checkpointTask,
 			TaskProvider<? extends StartApplication> startTask, TaskProvider<AppTest> appTestTask,
 			TaskProvider<StopApplication> stopTask) {
 		if (!project.file("docker-compose.yml").canRead()) {
@@ -175,6 +178,11 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 		project.getTasks()
 				.named(composeUpTaskName)
 				.configure((composeUp) -> composeUp.finalizedBy(composeDownTaskName));
+		if (checkpointTask != null) {
+			checkpointTask.configure((start) -> {
+				start.getInternalEnvironment().putAll(environment(project, composeSettings));
+			});
+		}
 		startTask.configure((start) -> {
 			start.dependsOn(composeUpTaskName);
 			start.getInternalEnvironment().putAll(environment(project, composeSettings));
