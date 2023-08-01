@@ -1,0 +1,24 @@
+plugins {
+	id "java"
+	id "org.springframework.boot"
+	id "org.springframework.cr.smoke-test"
+}
+
+dependencies {
+	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
+	implementation("org.springframework.boot:spring-boot-starter")
+
+	// TODO: update to non snapshot spring-kafka version when available.
+	// The spring-kafka 3.0.10+ is required due to https://github.com/spring-projects/spring-kafka/issues/2760
+	implementation("org.springframework.kafka:spring-kafka:3.0.10-SNAPSHOT")
+
+	implementation("com.fasterxml.jackson.core:jackson-databind")
+
+	implementation("org.crac:crac:$cracVersion")
+	implementation(project(":cr-listener"))
+
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	appTestImplementation(project(":cr-smoke-test-support"))
+	appTestImplementation("org.awaitility:awaitility:4.2.0")
+}
