@@ -1,4 +1,9 @@
 groups:
+  - name: data
+    smoke_tests:
+     - name: data-redis
+       app_test: true
+       test: true
   - name: framework
     smoke_tests:
      - name: webflux-undertow
