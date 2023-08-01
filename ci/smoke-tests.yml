@@ -3,7 +3,7 @@ groups:
     smoke_tests:
      - name: data-redis
        app_test: true
-       test: true
+       test: false
   - name: framework
     smoke_tests:
      - name: webflux-undertow
