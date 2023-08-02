@@ -17,4 +17,7 @@ subprojects {
 	plugins.withType(JavaPlugin) {
 		plugins.apply("io.spring.javaformat")
 	}
+	if (!buildDir.toString().startsWith(project.rootDir.toString())) {
+		buildDir = "$buildDir/$project.name"
+	}
 }
