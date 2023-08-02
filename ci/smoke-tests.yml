@@ -6,6 +6,9 @@ groups:
        test: false
   - name: framework
     smoke_tests:
+     - name: hibernate-mysql
+       app_test: true
+       test: true
      - name: webflux-undertow
        app_test: true
        test: true
