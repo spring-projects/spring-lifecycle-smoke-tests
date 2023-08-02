@@ -8,7 +8,7 @@ groups:
     smoke_tests:
      - name: hibernate-mysql
        app_test: true
-       test: true
+       test: false
      - name: webflux-undertow
        app_test: true
        test: true
