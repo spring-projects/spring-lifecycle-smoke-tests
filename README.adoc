@@ -20,7 +20,7 @@ The `appTest` task tests the application running on the JVM. The `checkpointRest
 
 === Mac
 
-- https://github.com/abiosoft/colima[Colima] (don't forget to start it).
+- https://www.docker.com/products/docker-desktop/[Docker Desktop] (Colima + QEMU does not support CRaC JDK in a reliable way)
 - Use `./run-dev-container.sh` before running Gradle commands.
 
 == Contributing
