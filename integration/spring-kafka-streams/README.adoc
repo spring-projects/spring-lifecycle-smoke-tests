@@ -1,0 +1,3 @@
+Tests if Spring Kafka pipeline is CR compatible.
+
+
