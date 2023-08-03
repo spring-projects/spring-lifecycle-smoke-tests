@@ -32,3 +32,6 @@ groups:
      - name: spring-kafka-avro
        app_test: true
        test: false
+     - name: spring-kafka-streams
+       app_test: true
+       test: false
