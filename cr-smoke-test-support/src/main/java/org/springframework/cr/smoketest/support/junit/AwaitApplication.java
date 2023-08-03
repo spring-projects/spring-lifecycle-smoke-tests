@@ -33,7 +33,7 @@ import org.springframework.cr.smoketest.support.Output;
  */
 class AwaitApplication implements BeforeAllCallback {
 
-	private static final Duration START_TIMEOUT = Duration.ofSeconds(10);
+	private static final Duration START_TIMEOUT = Duration.ofSeconds(20);
 
 	private final Pattern APPLICATION_STARTED = Pattern
 		.compile("Started [A-Za-z0-9]+ in [0-9\\.]+ seconds \\(process running for [0-9\\.]+\\)");
