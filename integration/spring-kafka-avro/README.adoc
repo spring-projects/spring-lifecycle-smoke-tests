@@ -1,0 +1,1 @@
+Verifies that Spring Kafka stream with AVRO encoding is CR compatible.
