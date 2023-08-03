@@ -1,0 +1,39 @@
+plugins {
+	id "java"
+	id "org.springframework.boot"
+	id "org.springframework.cr.smoke-test"
+}
+
+dependencies {
+	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
+	implementation("org.springframework.boot:spring-boot-starter-integration")
+	implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	//NOTE: Netty is not CR compatible at the moment
+	implementation("org.springframework.boot:spring-boot-starter-undertow")
+	modules {
+		module("org.springframework.boot:spring-boot-starter-reactor-netty") {
+			replacedBy("org.springframework.boot:spring-boot-starter-undertow", "Use Undertow instead of Netty")
+		}
+	}
+
+	implementation("org.springframework.integration:spring-integration-webflux")
+	implementation("org.springframework.integration:spring-integration-jdbc")
+	implementation("org.springframework.integration:spring-integration-redis")
+	implementation("io.micrometer:micrometer-core")
+	implementation("com.jayway.jsonpath:json-path")
+
+	implementation("org.crac:crac:$cracVersion")
+	implementation(project(":cr-listener"))
+
+	runtimeOnly("com.h2database:h2")
+
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	appTestImplementation(project(":cr-smoke-test-support"))
+	appTestImplementation("org.awaitility:awaitility:4.2.0")
+}
+
+crSmokeTest {
+	webApplication = true
+}
