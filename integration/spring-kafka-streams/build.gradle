@@ -1,0 +1,21 @@
+plugins {
+	id "java"
+	id "org.springframework.boot"
+	id "org.springframework.cr.smoke-test"
+}
+
+dependencies {
+	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
+	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("org.springframework.kafka:spring-kafka:3.0.10-SNAPSHOT") // TODO: remove the version once 3.0.10+ is released.
+	implementation("org.apache.kafka:kafka-streams")
+	implementation("com.fasterxml.jackson.core:jackson-databind")
+
+	implementation("org.crac:crac:$cracVersion")
+	implementation(project(":cr-listener"))
+
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	appTestImplementation(project(":cr-smoke-test-support"))
+	appTestImplementation("org.awaitility:awaitility:4.2.0")
+}
