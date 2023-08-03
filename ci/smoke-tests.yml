@@ -23,3 +23,12 @@ groups:
      - name: integration-basic
        app_test: true
        test: false
+     - name: integration-webfux-data
+       app_test: true
+       test: false
+     - name: spring-kafka
+       app_test: true
+       test: false
+     - name: spring-kafka-avro
+       app_test: true
+       test: false

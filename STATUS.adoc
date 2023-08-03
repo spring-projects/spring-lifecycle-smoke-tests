@@ -63,5 +63,20 @@ h|test
 |image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-basic-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-basic-cr-app-test]
 |
 
+|integration-webfux-data
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-webfux-data-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-webfux-data-app-test]
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-webfux-data-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-webfux-data-cr-app-test]
+|
+
+|spring-kafka
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-app-test]
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-cr-app-test]
+|
+
+|spring-kafka-avro
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-avro-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-avro-app-test]
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-avro-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-avro-cr-app-test]
+|
+
 |===
 
