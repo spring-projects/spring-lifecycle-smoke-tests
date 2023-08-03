@@ -9,3 +9,4 @@ out/
 ci/pipeline.yml
 stats-restore
 .vscode/
+.DS_Store

@@ -1,0 +1,21 @@
+plugins {
+	id "java"
+	id "org.springframework.boot"
+	id "org.springframework.cr.smoke-test"
+}
+
+dependencies {
+	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
+	implementation("org.springframework.boot:spring-boot-starter-amqp")
+
+	// TODO: update to non snapshot spring-rabbit 3.0.8+ version when available.
+	implementation("org.springframework.amqp:spring-rabbit:3.0.8-SNAPSHOT")
+
+	implementation("org.crac:crac:$cracVersion")
+	implementation(project(":cr-listener"))
+
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	appTestImplementation(project(":cr-smoke-test-support"))
+	appTestImplementation("org.awaitility:awaitility:4.2.0")
+}
