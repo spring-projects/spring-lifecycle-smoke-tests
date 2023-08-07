@@ -9,6 +9,9 @@ groups:
      - name: hibernate-mysql
        app_test: true
        test: false
+     - name: webflux-netty
+       app_test: true
+       test: true
      - name: webflux-undertow
        app_test: true
        test: true
