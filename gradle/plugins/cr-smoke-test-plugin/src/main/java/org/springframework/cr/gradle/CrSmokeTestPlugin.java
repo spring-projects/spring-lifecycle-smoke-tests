@@ -268,6 +268,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 		TaskProvider<AppTest> appTestTask = project.getTasks().register(taskName, AppTest.class, (task) -> {
 			task.dependsOn(startTask);
 			task.useJUnitPlatform();
+			task.getTestLogging().setShowStandardStreams(true);
 			task.setTestClassesDirs(source.getOutput().getClassesDirs());
 			task.setClasspath(source.getRuntimeClasspath());
 			task.getInputs()
