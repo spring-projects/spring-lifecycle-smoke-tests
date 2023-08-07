@@ -275,6 +275,8 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 					.withPropertyName("applicationBinary");
 			task.systemProperty("org.springframework.cr.smoketest.standard-output",
 					startTask.get().getOutputFile().get().getAsFile().getAbsolutePath());
+			task.systemProperty("org.springframework.cr.smoketest.standard-error",
+					startTask.get().getErrorFile().get().getAsFile().getAbsolutePath());
 			task.finalizedBy(stopTask);
 			task.setDescription("Runs the app test suite against the " + type.description + " application.");
 			task.setGroup(JavaBasePlugin.VERIFICATION_GROUP);

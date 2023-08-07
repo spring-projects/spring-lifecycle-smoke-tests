@@ -49,7 +49,7 @@ final class ApplicationUnderTest {
 		List<Pattern> portPatterns = List.of(Pattern.compile("Tomcat started on port ([0-9]+)"),
 				Pattern.compile("Netty started on port ([0-9]+)"), Pattern.compile("Jetty started on port ([0-9]+)"),
 				Pattern.compile("Undertow started on port ([0-9]+)"));
-		List<String> lines = Output.current().lines();
+		List<String> lines = Output.current().outputLines();
 		for (String line : lines) {
 			for (Pattern portPattern : portPatterns) {
 				Matcher matcher = portPattern.matcher(line);

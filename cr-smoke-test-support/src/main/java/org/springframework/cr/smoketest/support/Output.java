@@ -26,18 +26,31 @@ import java.util.List;
  * Output from an application.
  *
  * @author Andy Wilkinson
+ * @author Sebastien Deleuze
  */
 public class Output {
 
-	private final Path path;
+	private final Path outputPath;
 
-	private Output(Path path) {
-		this.path = path;
+	private final Path errorPath;
+
+	private Output(Path outputPath, Path errorPath) {
+		this.outputPath = outputPath;
+		this.errorPath = errorPath;
 	}
 
-	public List<String> lines() {
+	public List<String> outputLines() {
 		try {
-			return Files.readAllLines(this.path);
+			return Files.readAllLines(this.outputPath);
+		}
+		catch (IOException ex) {
+			throw new RuntimeException();
+		}
+	}
+
+	public List<String> errorLines() {
+		try {
+			return Files.readAllLines(this.errorPath);
 		}
 		catch (IOException ex) {
 			throw new RuntimeException();
@@ -45,13 +58,19 @@ public class Output {
 	}
 
 	public static Output current() {
-		String property = System.getProperty("org.springframework.cr.smoketest.standard-output");
-		if (property == null) {
+		String outputProperty = System.getProperty("org.springframework.cr.smoketest.standard-output");
+		if (outputProperty == null) {
 			throw new IllegalStateException(
 					"Standard output is not available as org.springframework.cr.smoketest.standard-output "
 							+ "system property has not been set");
 		}
-		return new Output(new File(property).toPath());
+		String errorProperty = System.getProperty("org.springframework.cr.smoketest.standard-error");
+		if (errorProperty == null) {
+			throw new IllegalStateException(
+					"Standard error is not available as org.springframework.cr.smoketest.standard-error "
+							+ "system property has not been set");
+		}
+		return new Output(new File(outputProperty).toPath(), new File(errorProperty).toPath());
 	}
 
 }

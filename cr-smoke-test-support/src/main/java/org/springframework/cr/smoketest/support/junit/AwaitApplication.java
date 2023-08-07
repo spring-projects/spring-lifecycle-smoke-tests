@@ -45,27 +45,35 @@ class AwaitApplication implements BeforeAllCallback {
 	public void beforeAll(ExtensionContext context) throws Exception {
 		Output output = Output.current();
 		long end = Instant.now().plus(START_TIMEOUT).toEpochMilli();
-		List<String> lines = null;
+		List<String> outputLines = null;
 		while (System.currentTimeMillis() < end) {
-			lines = output.lines();
-			for (String line : lines) {
+			outputLines = output.outputLines();
+			for (String line : outputLines) {
 				if (this.APPLICATION_STARTED.matcher(line).find() || this.APPLICATION_RE_STARTED.matcher(line).find()) {
 					return;
 				}
 			}
 		}
 		StringBuilder message = new StringBuilder(
-				"Started log message was not detected within " + START_TIMEOUT.getSeconds() + "s in output:");
-		message.append("\n\n");
-		if (lines == null || lines.isEmpty()) {
+				"Started log message was not detected within " + START_TIMEOUT.getSeconds() + "s:.");
+		message.append("\n\nStandard output:\n");
+		if (outputLines == null || outputLines.isEmpty()) {
 			message.append("<< none >>");
 		}
 		else {
-			for (String line : lines) {
+			for (String line : outputLines) {
 				message.append(line + "\n");
 			}
 		}
 		message.append("\n");
+		List<String> errorLines = output.errorLines();
+		if (!errorLines.isEmpty()) {
+			message.append("\nStandard error:\n");
+			for (String line : errorLines) {
+				message.append(line + "\n");
+			}
+			message.append("\n");
+		}
 		System.err.println(message.toString());
 		throw new IllegalStateException(message.toString());
 	}

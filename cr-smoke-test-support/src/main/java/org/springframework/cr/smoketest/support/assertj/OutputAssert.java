@@ -41,7 +41,7 @@ public class OutputAssert extends AbstractAssert<OutputAssert, Output> {
 	 * @return {@code this} for fluent API
 	 */
 	public OutputAssert hasSingleLineContaining(String contents) {
-		List<String> lines = this.actual.lines();
+		List<String> lines = this.actual.outputLines();
 		List<String> matchingLines = lines.stream().filter((line) -> line.contains(contents)).toList();
 		if (matchingLines.size() != 1) {
 			throwAssertionError(
@@ -57,7 +57,7 @@ public class OutputAssert extends AbstractAssert<OutputAssert, Output> {
 	 * @return {@code this} for fluent API
 	 */
 	public OutputAssert hasLineContaining(String contents) {
-		List<String> lines = this.actual.lines();
+		List<String> lines = this.actual.outputLines();
 		Optional<String> matchingLines = lines.stream().filter((line) -> line.contains(contents)).findAny();
 		if (matchingLines.isEmpty()) {
 			throwAssertionError(new BasicErrorMessageFactory(
@@ -72,7 +72,7 @@ public class OutputAssert extends AbstractAssert<OutputAssert, Output> {
 	 * @return {@code this} for fluent API
 	 */
 	public OutputAssert hasLineMatching(String regex) {
-		List<String> lines = this.actual.lines();
+		List<String> lines = this.actual.outputLines();
 		Optional<String> matchingLines = lines.stream().filter((line) -> line.matches(regex)).findAny();
 		if (matchingLines.isEmpty()) {
 			throwAssertionError(new BasicErrorMessageFactory(
@@ -87,7 +87,7 @@ public class OutputAssert extends AbstractAssert<OutputAssert, Output> {
 	 * @return {@code this} for fluent API
 	 */
 	public OutputAssert hasNoLinesContaining(String contents) {
-		List<String> lines = this.actual.lines();
+		List<String> lines = this.actual.outputLines();
 		boolean noMatch = lines.stream().noneMatch((line) -> line.contains(contents));
 		if (!noMatch) {
 			throwAssertionError(new BasicErrorMessageFactory(
