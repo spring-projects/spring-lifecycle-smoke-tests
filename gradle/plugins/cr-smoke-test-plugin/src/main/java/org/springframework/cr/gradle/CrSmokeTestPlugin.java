@@ -37,6 +37,7 @@ import org.gradle.api.provider.Provider;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.TaskProvider;
 import org.gradle.api.tasks.testing.Test;
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat;
 import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile;
 
 import org.springframework.boot.gradle.plugin.SpringBootPlugin;
@@ -268,7 +269,8 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 		TaskProvider<AppTest> appTestTask = project.getTasks().register(taskName, AppTest.class, (task) -> {
 			task.dependsOn(startTask);
 			task.useJUnitPlatform();
-			task.getTestLogging().setShowStandardStreams(true);
+			task.getTestLogging().setShowExceptions(true);
+			task.getTestLogging().setExceptionFormat(TestExceptionFormat.FULL);
 			task.setTestClassesDirs(source.getOutput().getClassesDirs());
 			task.setClasspath(source.getRuntimeClasspath());
 			task.getInputs()
