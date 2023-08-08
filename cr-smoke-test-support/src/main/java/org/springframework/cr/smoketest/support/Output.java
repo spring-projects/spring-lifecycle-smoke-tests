@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -32,11 +33,11 @@ public class Output {
 
 	private final Path outputPath;
 
-	private final Path errorPath;
+	private final Path checkpointOutputPath;
 
-	private Output(Path outputPath, Path errorPath) {
+	private Output(Path outputPath, Path outputCheckpointPath) {
 		this.outputPath = outputPath;
-		this.errorPath = errorPath;
+		this.checkpointOutputPath = outputCheckpointPath;
 	}
 
 	public List<String> outputLines() {
@@ -48,9 +49,12 @@ public class Output {
 		}
 	}
 
-	public List<String> errorLines() {
+	public List<String> checkpointOutputLines() {
+		if (this.checkpointOutputPath == null) {
+			return Collections.emptyList();
+		}
 		try {
-			return Files.readAllLines(this.errorPath);
+			return Files.readAllLines(this.checkpointOutputPath);
 		}
 		catch (IOException ex) {
 			throw new RuntimeException();
@@ -64,13 +68,13 @@ public class Output {
 					"Standard output is not available as org.springframework.cr.smoketest.standard-output "
 							+ "system property has not been set");
 		}
-		String errorProperty = System.getProperty("org.springframework.cr.smoketest.standard-error");
-		if (errorProperty == null) {
-			throw new IllegalStateException(
-					"Standard error is not available as org.springframework.cr.smoketest.standard-error "
-							+ "system property has not been set");
+		Path outputCheckpointPath = null;
+		String outputCheckpointProperty = System
+			.getProperty("org.springframework.cr.smoketest.standard-output-checkpoint");
+		if (outputCheckpointProperty != null) {
+			outputCheckpointPath = new File(outputCheckpointProperty).toPath();
 		}
-		return new Output(new File(outputProperty).toPath(), new File(errorProperty).toPath());
+		return new Output(new File(outputProperty).toPath(), outputCheckpointPath);
 	}
 
 }

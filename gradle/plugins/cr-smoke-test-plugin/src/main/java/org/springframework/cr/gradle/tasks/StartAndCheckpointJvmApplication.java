@@ -18,18 +18,33 @@ import org.gradle.internal.jvm.Jvm;
  */
 public abstract class StartAndCheckpointJvmApplication extends StartApplication {
 
+	public StartAndCheckpointJvmApplication() {
+		getOutputFile().convention(getOutputDirectory().map((dir) -> dir.file("output-checkpoint.txt")));
+		getErrorFile().convention(getOutputDirectory().map((dir) -> dir.file("error-checkpoint.txt")));
+		getPidFile().convention(getOutputDirectory().map((dir) -> dir.file("pid")));
+	}
+
 	@Override
 	protected ProcessBuilder prepareProcessBuilder(ProcessBuilder processBuilder) {
+		String outputDirectory = getOutputDirectory().get().toString();
 		File executable = Jvm.current().getJavaExecutable();
 		List<String> command = new ArrayList<>();
-		command.add(executable.getAbsolutePath());
-		command.add("-Dorg.springframework.cr.smoketest.checkpoint=onApplicationReady");
-		command.add("-XX:CRaCCheckpointTo=" + getOutputDirectory().get());
+		command.add("/bin/bash");
+		command.add("-c");
+		StringBuilder builder = new StringBuilder(executable.getAbsolutePath());
+		builder.append(" -Dorg.springframework.cr.smoketest.checkpoint=onApplicationReady");
+		builder.append(" -XX:CRaCCheckpointTo=");
+		builder.append(outputDirectory);
 		if (getWebApplication().get()) {
-			command.add("-Dserver.port=0");
+			builder.append(" -Dserver.port=0");
 		}
-		command.add("-jar");
-		command.add(getApplicationBinary().get().getAsFile().getAbsolutePath());
+		builder.append(" -jar ");
+		builder.append(getApplicationBinary().get().getAsFile().getAbsolutePath());
+		builder.append(" > ");
+		builder.append(getOutputFile().get().getAsFile().getAbsolutePath());
+		builder.append(" 2> ");
+		builder.append(getErrorFile().get().getAsFile().getAbsolutePath());
+		command.add(builder.toString());
 		return processBuilder.command(command);
 	}
 

@@ -56,6 +56,15 @@ class AwaitApplication implements BeforeAllCallback {
 		}
 		StringBuilder message = new StringBuilder(
 				"Started log message was not detected within " + START_TIMEOUT.getSeconds() + "s:.");
+		List<String> checkpointOutputLines = output.checkpointOutputLines();
+		if (!checkpointOutputLines.isEmpty()) {
+			message.append("\nStandard output for the checkpoint:\n");
+			for (String line : checkpointOutputLines) {
+				message.append(line + "\n");
+			}
+			message.append("\n");
+		}
+		message.append("\n");
 		message.append("\n\nStandard output:\n");
 		if (outputLines == null || outputLines.isEmpty()) {
 			message.append("<< none >>");
@@ -64,15 +73,6 @@ class AwaitApplication implements BeforeAllCallback {
 			for (String line : outputLines) {
 				message.append(line + "\n");
 			}
-		}
-		message.append("\n");
-		List<String> errorLines = output.errorLines();
-		if (!errorLines.isEmpty()) {
-			message.append("\nStandard error:\n");
-			for (String line : errorLines) {
-				message.append(line + "\n");
-			}
-			message.append("\n");
 		}
 		System.err.println(message.toString());
 		throw new IllegalStateException(message.toString());

@@ -159,7 +159,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 			startTask = createRestoreApplicationTask(project, applicationBinary, outputDirectory, startTask, extension);
 		}
 		TaskProvider<StopApplication> stopTask = createStopApplicationTask(project, type, startTask);
-		TaskProvider<AppTest> appTestTask = createAppTestTask(project, appTest, type, startTask, stopTask);
+		TaskProvider<AppTest> appTestTask = createAppTestTask(project, appTest, type, checkpointTask, startTask, stopTask);
 		configureDockerComposeIfNecessary(project, type, checkpointTask, startTask, appTestTask, stopTask);
 		return appTestTask;
 	}
@@ -261,6 +261,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 	}
 
 	private TaskProvider<AppTest> createAppTestTask(Project project, SourceSet source, ApplicationType type,
+			TaskProvider<? extends StartApplication> checkpointTask,
 			TaskProvider<? extends StartApplication> startTask, TaskProvider<StopApplication> stopTask) {
 		String taskName = switch (type) {
 			case JVM -> "appTest";
@@ -269,8 +270,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 		TaskProvider<AppTest> appTestTask = project.getTasks().register(taskName, AppTest.class, (task) -> {
 			task.dependsOn(startTask);
 			task.useJUnitPlatform();
-			task.getTestLogging().setShowExceptions(true);
-			task.getTestLogging().setExceptionFormat(TestExceptionFormat.FULL);
+			task.getTestLogging().setShowStandardStreams(true);
 			task.setTestClassesDirs(source.getOutput().getClassesDirs());
 			task.setClasspath(source.getRuntimeClasspath());
 			task.getInputs()
@@ -278,8 +278,10 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 					.withPropertyName("applicationBinary");
 			task.systemProperty("org.springframework.cr.smoketest.standard-output",
 					startTask.get().getOutputFile().get().getAsFile().getAbsolutePath());
-			task.systemProperty("org.springframework.cr.smoketest.standard-error",
-					startTask.get().getErrorFile().get().getAsFile().getAbsolutePath());
+			if (checkpointTask != null && checkpointTask.isPresent()) {
+				task.systemProperty("org.springframework.cr.smoketest.standard-output-checkpoint",
+						checkpointTask.get().getOutputFile().get().getAsFile().getAbsolutePath());
+			}
 			task.finalizedBy(stopTask);
 			task.setDescription("Runs the app test suite against the " + type.description + " application.");
 			task.setGroup(JavaBasePlugin.VERIFICATION_GROUP);
