@@ -15,6 +15,7 @@
  */
 package com.example.amqp;
 
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -78,16 +79,21 @@ public class AmqpRabbitApplication implements SmartLifecycle {
 		return new Queue("cf2");
 	}
 
+	private AtomicBoolean isRunning = new AtomicBoolean(false);
+
+	private Semaphore taskCompletionSemaphore = new Semaphore(1);
+
 	@Scheduled(fixedDelay = 1, timeUnit = TimeUnit.SECONDS)
 	public void doSendMessage() {
+		this.taskCompletionSemaphore.acquireUninterruptibly();
 		if (this.isRunning.get()) {
 			System.out.println("++++++ Received: " + template.convertSendAndReceive("", "cf1", "one"));
 		}
+		this.taskCompletionSemaphore.release();
+
 	}
 
 	// Use the SmartLifecycle to synch the message sending with the checkpoint/restore.
-	private AtomicBoolean isRunning = new AtomicBoolean(false);
-
 	@Override
 	public void start() {
 		this.isRunning.set(true);
@@ -96,6 +102,9 @@ public class AmqpRabbitApplication implements SmartLifecycle {
 	@Override
 	public void stop() {
 		this.isRunning.set(false);
+		// wait until the running task complete.
+		this.taskCompletionSemaphore.acquireUninterruptibly();
+		this.taskCompletionSemaphore.release();
 	}
 
 	@Override
