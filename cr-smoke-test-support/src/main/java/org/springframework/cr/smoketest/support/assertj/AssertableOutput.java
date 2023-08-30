@@ -24,10 +24,15 @@ import org.springframework.cr.smoketest.support.Output;
  * An {@link AssertProvider} for {@link OutputAssert}.
  *
  * @author Andy Wilkinson
+ * @author Sebastien Deleuze
  */
 public class AssertableOutput implements AssertProvider<OutputAssert> {
 
 	private final Output output = Output.current();
+
+	public Output getOutput() {
+		return this.output;
+	}
 
 	@Override
 	public OutputAssert assertThat() {
