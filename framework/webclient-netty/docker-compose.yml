@@ -1,0 +1,6 @@
+version: '3'
+services:
+  httpbin:
+    image: 'mccutchen/go-httpbin:v2.10.0'
+    ports:
+      - '8080'
