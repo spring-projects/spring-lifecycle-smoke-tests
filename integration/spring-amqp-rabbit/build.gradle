@@ -8,8 +8,7 @@ dependencies {
 	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
 	implementation("org.springframework.boot:spring-boot-starter-amqp")
 
-	// TODO: update to non snapshot spring-rabbit 3.0.8+ version when available.
-	implementation("org.springframework.amqp:spring-rabbit:3.0.8-SNAPSHOT")
+	implementation("org.springframework.amqp:spring-rabbit:3.0.8")
 
 	implementation("org.crac:crac:$cracVersion")
 	implementation(project(":cr-listener"))
