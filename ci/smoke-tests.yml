@@ -9,6 +9,9 @@ groups:
      - name: hibernate-mysql
        app_test: true
        test: false
+     - name: scheduled
+       app_test: true
+       test: false
      - name: webflux-netty
        app_test: true
        test: true
@@ -27,6 +30,9 @@ groups:
        app_test: true
        test: false
      - name: integration-webfux-data
+       app_test: true
+       test: false
+     - name: spring-amqp-rabbit
        app_test: true
        test: false
      - name: spring-kafka
