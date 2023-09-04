@@ -9,7 +9,7 @@ export ARCH=$(uname -m)
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install --no-install-recommends -y tzdata ca-certificates net-tools libxml2-utils git curl libudev1 libxml2-utils iptables iproute2 jq unzip build-essential libz-dev libfreetype-dev nano
+apt-get install --no-install-recommends -y tzdata ca-certificates net-tools libxml2-utils git curl libudev1 libxml2-utils iptables iproute2 jq unzip build-essential libz-dev libfreetype-dev nano libarchive-tools
 ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 rm -rf /var/lib/apt/lists/*
@@ -51,7 +51,12 @@ curl --location $DOCKER_COMPOSE_URL > /opt/docker-compose/bin/docker-compose
 chmod +x /opt/docker-compose/bin/docker-compose
 
 ###########################################################
-# GRADLE ENTERPRISE
+# GRADLE
 ###########################################################
+GRADLE_URL=$( /get-gradle-url.sh )
+mkdir -p /opt/gradle
+cd /opt/gradle
+curl -L $GRADLE_URL | bsdtar --strip-components=1 -xvf-
+chmod +x /opt/gradle/bin/gradle
 mkdir ~/.gradle
 echo 'systemProp.user.name=concourse' > ~/.gradle/gradle.properties
