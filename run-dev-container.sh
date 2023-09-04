@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -ex
 
 REBUILD=false
 HOST_WORK_DIR="$( pwd )"
@@ -36,4 +37,4 @@ docker image ls | grep spring-checkpoint-restore-smoke-tests-dev >/dev/null 2>&1
 test "$REBUILD" = false || docker build \
   -t spring-checkpoint-restore-smoke-tests-dev -f $HOST_WORK_DIR/ci/images/ci-image/Dockerfile $HOST_WORK_DIR/ci/images
 
-docker run -it --entrypoint /bin/bash --privileged  -v $HOME/.m2:/root/.m2:ro -v $HOST_WORK_DIR:$CONTAINER_WORK_DIR:delegated -w $CONTAINER_WORK_DIR spring-checkpoint-restore-smoke-tests-dev -c 'source /docker-lib.sh && start_docker && bash'
+docker run -it --entrypoint /bin/bash --privileged -v $HOME/.m2:/root/.m2:ro -v $HOST_WORK_DIR:$CONTAINER_WORK_DIR:delegated -w $CONTAINER_WORK_DIR spring-checkpoint-restore-smoke-tests-dev -c 'source /docker-lib.sh && start_docker && bash'
