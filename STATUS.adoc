@@ -37,6 +37,11 @@ h|test
 |image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/scheduled-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/scheduled-cr-app-test]
 |
 
+|webclient-netty
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webclient-netty-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webclient-netty-app-test]
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webclient-netty-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webclient-netty-cr-app-test]
+|
+
 |webflux-netty
 |image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-cr-app-test]

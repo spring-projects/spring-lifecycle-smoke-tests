@@ -12,6 +12,9 @@ groups:
      - name: scheduled
        app_test: true
        test: false
+     - name: webclient-netty
+       app_test: true
+       test: false
      - name: webflux-netty
        app_test: true
        test: true
