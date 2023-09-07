@@ -79,10 +79,15 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 		javaExtension.setTargetCompatibility(JavaVersion.VERSION_17);
 		if (project.hasProperty("fromMavenLocal")) {
 			String fromMavenLocal = project.property("fromMavenLocal").toString();
-			Stream<String> includedGroups = Stream.of(fromMavenLocal.split(","));
-			project.getRepositories()
-					.mavenLocal(
-							(mavenLocal) -> mavenLocal.content((content) -> includedGroups.forEach(content::includeGroup)));
+			if (fromMavenLocal.isEmpty()) {
+				project.getRepositories().mavenLocal();
+			}
+			else {
+				Stream<String> includedGroups = Stream.of(fromMavenLocal.split(","));
+				project.getRepositories()
+						.mavenLocal(
+								(mavenLocal) -> mavenLocal.content((content) -> includedGroups.forEach(content::includeGroup)));
+			}
 		}
 		project.getRepositories().mavenCentral();
 		project.getRepositories().maven((repo) -> {

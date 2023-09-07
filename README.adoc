@@ -85,14 +85,23 @@ _Hint: You can use `--include-build` multiple times._
 ==== Your project uses Maven or --include-build does not work
 
 First, install the snapshots into your local Maven cache.
-You can now consume those snapshots using `-PfromMavenLocal` which takes a comma-separated list of group IDs:
+You can now consume those snapshots using `-PfromMavenLocal` which takes an
+optional comma-separated list of group IDs:
 
 [source,]
 ----
 ./gradlew :framework:webmvc-tomcat:build -PfromMavenLocal=org.springframework
 ----
 
-The preceding example will run the `rest-template` smoke test, resolving Spring Framework from your local Maven cache.
+The preceding example will run the `webmvc-tomcat` smoke test, resolving Spring Framework from your local Maven cache.
+
+You can also just specify:
+[source,]
+----
+./gradlew :framework:webmvc-tomcat:build -PfromMavenLocal
+----
+
+Here all the dependencies will be resolved from your local Maven cache.
 
 === Override a dependency version
 
