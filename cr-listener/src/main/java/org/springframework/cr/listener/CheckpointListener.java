@@ -22,8 +22,8 @@ import org.crac.CheckpointException;
 import org.crac.Core;
 import org.crac.RestoreException;
 
-import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationContextException;
+import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 
 /**
@@ -31,26 +31,24 @@ import org.springframework.context.ApplicationListener;
  * when the {@code org.springframework.cr.smoketest.checkpoint} JVM system property is set
  * to {@code onApplicationReady}.
  */
-class CheckpointListener implements ApplicationListener<ApplicationReadyEvent> {
+class CheckpointListener implements ApplicationListener<ApplicationEvent> {
 
-	private static final String CHECKPOINT_PROPERTY_NAME = "org.springframework.cr.smoketest.checkpoint";
-
-	public static final String CHECKPOINT_ON_REFRESH_VALUE = "onApplicationReady";
+	private static final String CHECKPOINT_EVENT_PROPERTY_NAME = "org.springframework.cr.smoketest.checkpoint";
 
 	private final Log logger = LogFactory.getLog(getClass());
 
 	@Override
-	public void onApplicationEvent(ApplicationReadyEvent event) {
-		String property = System.getProperty(CHECKPOINT_PROPERTY_NAME);
-		if (CHECKPOINT_ON_REFRESH_VALUE.equalsIgnoreCase(property)) {
-			new CracDelegate().checkpointRestore();
+	public void onApplicationEvent(ApplicationEvent event) {
+		String eventClassName = System.getProperty(CHECKPOINT_EVENT_PROPERTY_NAME);
+		if (event.getClass().getName().equalsIgnoreCase(eventClassName)) {
+			new CracDelegate().checkpointRestore(eventClassName);
 		}
 	}
 
 	private class CracDelegate {
 
-		public void checkpointRestore() {
-			logger.info("Triggering JVM checkpoint/restore " + CHECKPOINT_ON_REFRESH_VALUE);
+		public void checkpointRestore(String eventClassName) {
+			logger.info("Triggering JVM checkpoint/restore on " + eventClassName);
 			try {
 				Core.checkpointRestore();
 			}

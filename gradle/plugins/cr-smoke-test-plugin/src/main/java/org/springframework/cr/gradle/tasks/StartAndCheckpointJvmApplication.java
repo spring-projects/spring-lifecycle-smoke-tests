@@ -32,7 +32,7 @@ public abstract class StartAndCheckpointJvmApplication extends StartApplication 
 		command.add("/bin/bash");
 		command.add("-c");
 		StringBuilder builder = new StringBuilder(executable.getAbsolutePath());
-		builder.append(" -Dorg.springframework.cr.smoketest.checkpoint=onApplicationReady");
+		builder.append(" -Dorg.springframework.cr.smoketest.checkpoint=org.springframework.boot.context.event.ApplicationReadyEvent");
 		builder.append(" -XX:CRaCCheckpointTo=");
 		builder.append(outputDirectory);
 		if (getWebApplication().get()) {
