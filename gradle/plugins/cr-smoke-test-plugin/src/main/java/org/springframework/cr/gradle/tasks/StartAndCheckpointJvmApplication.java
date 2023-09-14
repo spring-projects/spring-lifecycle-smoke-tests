@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gradle.api.Task;
+import org.gradle.api.provider.Property;
+import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.TaskAction;
 import org.gradle.internal.jvm.Jvm;
 
@@ -32,7 +34,8 @@ public abstract class StartAndCheckpointJvmApplication extends StartApplication 
 		command.add("/bin/bash");
 		command.add("-c");
 		StringBuilder builder = new StringBuilder(executable.getAbsolutePath());
-		builder.append(" -Dorg.springframework.cr.smoketest.checkpoint=org.springframework.boot.context.event.ApplicationReadyEvent");
+		builder.append(" -Dorg.springframework.cr.smoketest.checkpoint=");
+		builder.append(getCheckpointEvent().get());
 		builder.append(" -XX:CRaCCheckpointTo=");
 		builder.append(outputDirectory);
 		if (getWebApplication().get()) {
@@ -67,5 +70,10 @@ public abstract class StartAndCheckpointJvmApplication extends StartApplication 
 		Files.write(pid, List.of(Long.toString(process.pid())));
 	}
 
+	/**
+	 * @return The Spring event class name to be used to trigger a checkpoint.
+	 */
+	@Input
+	public abstract Property<String> getCheckpointEvent();
 
 }

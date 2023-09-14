@@ -73,6 +73,7 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 		CrSmokeTestExtension extension = project.getExtensions()
 				.create("crSmokeTest", CrSmokeTestExtension.class, project);
 		extension.getWebApplication().convention(false);
+		extension.getCheckpointEvent().convention("org.springframework.boot.context.event.ApplicationReadyEvent");
 		JavaPluginExtension javaExtension = project.getExtensions().getByType(JavaPluginExtension.class);
 		SourceSet appTest = javaExtension.getSourceSets().create("appTest");
 		javaExtension.setSourceCompatibility(JavaVersion.VERSION_17);
@@ -262,6 +263,9 @@ public class CrSmokeTestPlugin implements Plugin<Project> {
 			start.getOutputDirectory().set(outputDirectory);
 			start.setDescription("Starts the " + type.description + " application.");
 			start.getWebApplication().convention(extension.getWebApplication());
+			if (start instanceof StartAndCheckpointJvmApplication startAndCheckpoint) {
+				startAndCheckpoint.getCheckpointEvent().convention(extension.getCheckpointEvent());
+			}
 		});
 	}
 

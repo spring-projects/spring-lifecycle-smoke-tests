@@ -31,9 +31,12 @@ public class CrSmokeTestExtension {
 
 	private final Property<Boolean> webApplication;
 
+	private final Property<String> checkpointEvent;
+
 	@Inject
 	public CrSmokeTestExtension(Project project) {
 		this.webApplication = project.getObjects().property(Boolean.class);
+		this.checkpointEvent = project.getObjects().property(String.class);
 	}
 
 	/**
@@ -42,6 +45,13 @@ public class CrSmokeTestExtension {
 	 */
 	public Property<Boolean> getWebApplication() {
 		return this.webApplication;
+	}
+
+	/**
+	 * @return The Spring event class name to be used to trigger a checkpoint.
+	 */
+	public Property<String> getCheckpointEvent() {
+		return this.checkpointEvent;
 	}
 
 }
