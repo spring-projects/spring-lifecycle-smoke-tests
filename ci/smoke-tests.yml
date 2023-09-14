@@ -55,3 +55,11 @@ groups:
      - name: spring-kafka-streams
        app_test: true
        test: false
+  - name: cloud
+    smoke_tests:
+      - name: context-refresh-http
+        app_test: true
+        test: true
+      - name: context-refresh
+        app_test: false
+        test: false

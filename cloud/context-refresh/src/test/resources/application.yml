@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: context-refresh
+  config:
+    import: file:././dev.properties
+
+config:
+  path: ././dev.properties
