@@ -121,3 +121,16 @@ dependencies {
 ----
 
 This works for direct and transitive dependencies.
+
+=== Use a custom event to trigger the checkpoint
+
+By default, `org.springframework.boot.context.event.ApplicationReadyEvent` is used to trigger the checkpoint when the
+application is ready. It is possible to specify another event to trigger the checkpoint with the following Gradle
+configuration:
+
+[source,]
+----
+crSmokeTest {
+    checkpointEvent = "com.example.MyCustomEvent"
+}
+----
