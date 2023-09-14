@@ -1,0 +1,13 @@
+spring:
+  application:
+      name: context-refresh
+  config:
+    import: classpath:/dev.properties
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - env

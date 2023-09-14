@@ -12,11 +12,10 @@ class WebClientConfiguration {
 	@Bean
 	WebClient webClient(WebClient.Builder builder, ClientHttpConnector clientHttpConnector) {
 		// TODO Check why run-dev-container.sh is broken by the commented line below
-		//String host = env("HTTPBIN_HOST", "localhost");
+		// String host = env("HTTPBIN_HOST", "localhost");
 		String host = "localhost";
 		int port = env("HTTPBIN_PORT_8080", 8080);
-		return builder.baseUrl("http://%s:%d/".formatted(host, port))
-				.clientConnector(clientHttpConnector).build();
+		return builder.baseUrl("http://%s:%d/".formatted(host, port)).clientConnector(clientHttpConnector).build();
 	}
 
 	private static String env(String name, String def) {

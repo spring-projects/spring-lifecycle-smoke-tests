@@ -27,7 +27,7 @@ rootProject.name="spring-checkpoint-restore-smoke-tests"
 include "cr-smoke-test-support"
 include "cr-listener"
 
-["data", "framework", "integration"].each { group ->
+["data", "framework", "integration", "cloud"].each { group ->
 	file(group).eachDirMatch(~/[a-z].*/) { smokeTest ->
 		include "$group:${smokeTest.name}"
 	}
