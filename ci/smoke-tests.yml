@@ -1,4 +1,9 @@
 groups:
+  - name: boot
+    smoke_tests:
+     - name: actuator-webmvc
+       app_test: true
+       test: false
   - name: data
     smoke_tests:
      - name: data-redis
