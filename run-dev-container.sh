@@ -17,6 +17,20 @@ while test $# -gt 0; do
       echo "-r, --rebuild             force container image rebuild"
       exit 0
       ;;
+    -w)
+      shift
+      if test $# -gt 0; then
+        export HOST_WORK_DIR=$(cd $1; pwd)
+      else
+        echo "no working directory specified"
+        exit 1
+      fi
+      shift
+      ;;
+    --workdir)
+      export HOST_WORK_DIR=`echo $(cd $1; pwd) | sed -e 's/^[^=]*=//g'`
+      shift
+      ;;
     -r)
       export REBUILD=true
       shift
