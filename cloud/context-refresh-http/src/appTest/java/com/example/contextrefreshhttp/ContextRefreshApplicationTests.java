@@ -1,4 +1,4 @@
-package com.example.contextrefresh;
+package com.example.contextrefreshhttp;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

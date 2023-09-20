@@ -1,6 +1,6 @@
-package com.example.contextrefresh;
+package com.example.contextrefreshhttp;
 
-import com.example.contextrefresh.config.SimpleConfigurationProperties;
+import com.example.contextrefreshhttp.config.SimpleConfigurationProperties;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

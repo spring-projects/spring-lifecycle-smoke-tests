@@ -1,4 +1,4 @@
-package com.example.contextrefresh.config;
+package com.example.contextrefreshhttp.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
