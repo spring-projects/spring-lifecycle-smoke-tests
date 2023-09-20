@@ -4,9 +4,9 @@ spring:
       on-start:
         enabled: false
   application:
-      name: context-refresh
+      name: context-refresh-http
   config:
-    import: file:./cloud/context-refresh/dev.properties
+    import: classpath:/dev.properties
 
 management:
   endpoints:
