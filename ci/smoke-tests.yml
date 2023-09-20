@@ -1,6 +1,9 @@
 groups:
   - name: boot
     smoke_tests:
+     - name: actuator-webflux
+       app_test: true
+       test: false
      - name: actuator-webmvc
        app_test: true
        test: false
