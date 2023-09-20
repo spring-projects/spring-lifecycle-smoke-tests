@@ -1,4 +1,8 @@
 spring:
+  cloud:
+    refresh:
+      on-start:
+        enabled: false
   application:
       name: context-refresh
   config:
