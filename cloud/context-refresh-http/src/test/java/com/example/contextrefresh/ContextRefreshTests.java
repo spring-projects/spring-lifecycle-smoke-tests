@@ -75,7 +75,7 @@ class ContextRefreshTests {
 
 	static void editExternalConfigurationProperties(String newFileContent) throws IOException {
 		Files.writeString(Paths.get(resource.getFile().getAbsolutePath()), newFileContent, Charset.defaultCharset(),
-				StandardOpenOption.WRITE);
+				StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 
 }
