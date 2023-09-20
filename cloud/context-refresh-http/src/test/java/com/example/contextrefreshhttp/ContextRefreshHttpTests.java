@@ -20,7 +20,7 @@ import org.springframework.http.RequestEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ContextRefreshTests {
+class ContextRefreshHttpTests {
 
 	@Autowired
 	private TestRestTemplate restTemplate;

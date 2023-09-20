@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    refresh:
+      on-start:
+        enabled: false
+  application:
+    name: context-refresh
+  config:
+    import: file:./cloud/context-refresh/dev.properties
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - env

@@ -15,7 +15,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ApplicationTest
-public class ContextRefreshApplicationTests {
+public class ContextRefreshHttpApplicationTests {
 
 	@AfterAll
 	static void setUp() throws IOException {

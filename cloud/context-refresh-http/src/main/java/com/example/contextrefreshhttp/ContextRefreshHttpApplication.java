@@ -8,10 +8,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 @SpringBootApplication
 @EnableConfigurationProperties(SimpleConfigurationProperties.class)
-public class ContextRefreshApplication {
+public class ContextRefreshHttpApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ContextRefreshApplication.class, args);
+		SpringApplication.run(ContextRefreshHttpApplication.class, args);
 	}
 
 }
