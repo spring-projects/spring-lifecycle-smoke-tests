@@ -1,7 +1,7 @@
 spring:
   cloud:
     refresh:
-      on-start:
+      on-restart:
         enabled: false
   application:
       name: context-refresh-http

@@ -16,7 +16,6 @@ dependencies {
     implementation("org.crac:crac:$cracVersion")
     implementation(project(":cr-listener"))
     implementation("org.springframework.cloud:spring-cloud-starter")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
@@ -32,3 +31,7 @@ dependencyManagement {
 crSmokeTest {
     webApplication = true
 }
+
+// `@ApplicationTest`s need to only be executed during the `checkpointRestoreAppTest and not `appTest`
+// (we're checking for a value that we want to have been modified in between these two phases).
+project.gradle.startParameter.excludedTaskNames.add("appTest")

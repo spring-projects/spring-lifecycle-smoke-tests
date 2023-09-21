@@ -1,21 +1,11 @@
 package com.example.contextrefresh;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,58 +15,23 @@ class ContextRefreshTests {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
-	private static final Resource resource = new ClassPathResource("dev.properties");
-
-	@AfterAll
-	static void setUp() throws IOException {
-		editExternalConfigurationProperties("""
-				simple.test=testVal
-				test=propVal
-				""");
+	@AfterEach
+	void cleanUp() {
+		restTemplate.getForObject("/reset", Void.class);
 	}
 
+	// Verify for initial values only
 	@Test
-	void refreshScopeBean() throws IOException {
+	void refreshScopeBean() {
 		String property = this.restTemplate.getForObject("/refresh", String.class);
 		assertThat(property).isEqualTo("propVal");
-		editExternalConfigurationProperties("""
-				simple.test=testVal
-				test=propValNew
-				""");
-
-		RequestEntity<Void> request = RequestEntity.post("/actuator/refresh")
-				.contentType(MediaType.APPLICATION_JSON)
-				.build();
-
-		this.restTemplate.postForObject("/actuator/refresh", request, String.class);
-
-		String updatedProperty = this.restTemplate.getForObject("/refresh", String.class);
-		assertThat(updatedProperty).isEqualTo("propValNew");
 	}
 
+	// Verify for initial values only
 	@Test
-	void configurationProperties() throws IOException {
+	void configurationProperties() {
 		String property = this.restTemplate.getForObject("/simple", String.class);
 		assertThat(property).isEqualTo("testVal");
-		editExternalConfigurationProperties("""
-				simple.test=testValNew
-				test=propVal
-				""");
-
-		RequestEntity<Void> request = RequestEntity.post("/actuator/refresh")
-				.contentType(MediaType.APPLICATION_JSON)
-				.build();
-
-		this.restTemplate.postForObject("/actuator/refresh", request, String.class);
-
-		String updatedProperty = this.restTemplate.getForObject("/simple", String.class);
-		assertThat(updatedProperty).isEqualTo("testValNew");
-	}
-
-	static void editExternalConfigurationProperties(String newFileContent) throws IOException {
-		Files.writeString(Paths.get(resource.getFile()
-						.getAbsolutePath()), newFileContent, Charset.defaultCharset(),
-				StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 
 }

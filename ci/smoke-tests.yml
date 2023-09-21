@@ -60,3 +60,6 @@ groups:
       - name: context-refresh-http
         app_test: true
         test: true
+      - name: context-refresh
+        app_test: false
+        test: false

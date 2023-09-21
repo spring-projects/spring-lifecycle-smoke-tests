@@ -1,12 +1,12 @@
 spring:
   cloud:
     refresh:
-      on-start:
+      on-restart:
         enabled: false
   application:
       name: context-refresh-http
   config:
-    import: classpath:/dev.properties
+    import: file:././dev.properties
 
 management:
   endpoints:

@@ -17,8 +17,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ApplicationTest
 public class ContextRefreshApplicationTests {
 
+	// Bring the config file back to init values before next app start,
+	// since the app updates the property file after properties set
 	@AfterAll
-	static void setUp() throws IOException {
+	static void cleanUp() throws IOException {
 		editExternalConfigurationProperties("""
 				simple.test=testVal
 				test=propVal
@@ -26,51 +28,25 @@ public class ContextRefreshApplicationTests {
 	}
 
 	@Test
-	void refreshScopeBean(WebTestClient webClient) throws IOException {
+	void refreshScopeBean(WebTestClient webClient) {
 		webClient.get()
-				.uri("/refresh")
-				.exchange()
-				.expectStatus()
-				.isOk()
-				.expectBody()
-				.consumeWith(result -> assertThat(new String(result.getResponseBodyContent())).isEqualTo("propVal"));
-		editExternalConfigurationProperties("""
-				simple.test=testVal
-				test=propValNew
-				""");
-		webClient.post().uri("/actuator/refresh").exchange().expectStatus().isOk();
-
-		webClient.get()
-				.uri("/refresh")
-				.exchange()
-				.expectStatus()
-				.isOk()
-				.expectBody()
-				.consumeWith(result -> assertThat(new String(result.getResponseBodyContent())).isEqualTo("propValNew"));
+			.uri("/refresh")
+			.exchange()
+			.expectStatus()
+			.isOk()
+			.expectBody()
+			.consumeWith(result -> assertThat(new String(result.getResponseBodyContent())).isEqualTo("propValNew"));
 	}
 
 	@Test
-	void configurationProperties(WebTestClient webClient) throws IOException {
+	void configurationProperties(WebTestClient webClient) {
 		webClient.get()
-				.uri("/simple")
-				.exchange()
-				.expectStatus()
-				.isOk()
-				.expectBody()
-				.consumeWith(result -> assertThat(new String(result.getResponseBodyContent())).isEqualTo("testVal"));
-		editExternalConfigurationProperties("""
-				simple.test=testValNew
-				test=propVal
-				""");
-		webClient.post().uri("/actuator/refresh").exchange().expectStatus().isOk();
-
-		webClient.get()
-				.uri("/simple")
-				.exchange()
-				.expectStatus()
-				.isOk()
-				.expectBody()
-				.consumeWith(result -> assertThat(new String(result.getResponseBodyContent())).isEqualTo("testValNew"));
+			.uri("/simple")
+			.exchange()
+			.expectStatus()
+			.isOk()
+			.expectBody()
+			.consumeWith(result -> assertThat(new String(result.getResponseBodyContent())).isEqualTo("testValNew"));
 	}
 
 	private static void editExternalConfigurationProperties(String newFileContent) throws IOException {

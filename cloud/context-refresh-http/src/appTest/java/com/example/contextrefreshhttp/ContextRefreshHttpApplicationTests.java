@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ContextRefreshHttpApplicationTests {
 
 	@AfterAll
-	static void setUp() throws IOException {
+	static void cleanUp() throws IOException {
 		editExternalConfigurationProperties("""
 				simple.test=testVal
 				test=propVal
@@ -74,7 +74,7 @@ public class ContextRefreshHttpApplicationTests {
 	}
 
 	private static void editExternalConfigurationProperties(String newFileContent) throws IOException {
-		Files.writeString(Path.of("./dev.properties"), newFileContent, Charset.defaultCharset(),
+		Files.writeString(Path.of("././dev.properties"), newFileContent, Charset.defaultCharset(),
 				StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 
