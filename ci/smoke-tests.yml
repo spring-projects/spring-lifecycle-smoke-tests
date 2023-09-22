@@ -7,14 +7,31 @@ groups:
      - name: actuator-webmvc
        app_test: true
        test: false
+  - name: cloud
+    smoke_tests:
+     - name: context-refresh
+       app_test: true
+       test: true
+     - name: context-refresh-http
+       app_test: true
+       test: true
   - name: data
     smoke_tests:
+     - name: data-jdbc
+       app_test: true
+       test: false
+     - name: data-jpa
+       app_test: true
+       test: false
      - name: data-redis
        app_test: true
        test: false
   - name: framework
     smoke_tests:
      - name: hibernate-mysql
+       app_test: true
+       test: false
+     - name: rest-template-netty
        app_test: true
        test: false
      - name: scheduled
@@ -55,11 +72,3 @@ groups:
      - name: spring-kafka-streams
        app_test: true
        test: false
-  - name: cloud
-    smoke_tests:
-      - name: context-refresh-http
-        app_test: true
-        test: true
-      - name: context-refresh
-        app_test: false
-        test: false
