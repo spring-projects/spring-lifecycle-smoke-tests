@@ -69,3 +69,9 @@ groups:
      - name: spring-kafka-streams
        app_test: true
        test: false
+     - name: spring-pulsar
+       app_test: true
+       test: false
+     - name: spring-pulsar-reactive
+       app_test: true
+       test: false
