@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  db1:
+    image: 'postgres:16.0-alpine'
+    container_name: db1
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=user1
+      - POSTGRES_PASSWORD=passwd1
+      - POSTGRES_DB=database1
+    ports:
+      - "5432"
+
+  db2:
+    image: 'postgres:16.0-alpine'
+    container_name: db2
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=user2
+      - POSTGRES_PASSWORD=passwd2
+      - POSTGRES_DB=database2
+    ports:
+      - "5432"

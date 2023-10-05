@@ -14,6 +14,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings({ "JUnitMalformedDeclaration", "DataFlowIssue" })
 @ApplicationTest
 public class ContextRefreshHttpApplicationTests {
 

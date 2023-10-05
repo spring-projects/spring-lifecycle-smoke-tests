@@ -1,4 +1,4 @@
-package com.example.contextrefresh;
+package com.example.contextrefreshhikari.controllers;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -24,21 +24,23 @@ public class ConfigUpdateController {
 	private String path;
 
 	@EventListener(ApplicationStartedEvent.class)
-	public void doSomethingAfterStartup() throws IOException {
+	public void editExternalConfig() throws IOException {
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("Updating file values");
 		}
 		editExternalConfigurationProperties("""
-				simple.test=testValNew
-				test=propValNew
+				spring.datasource.url: jdbc:postgresql://${DB2_HOST:localhost}:${DB2_PORT_5432:5432}/database2
+				spring.datasource.username=user2
+				spring.datasource.password=passwd2
 				""");
 	}
 
 	@GetMapping("/reset")
 	void reset() throws IOException {
 		editExternalConfigurationProperties("""
-				simple.test=testVal
-				test=propVal
+				spring.datasource.url: jdbc:postgresql://${DB1_HOST:localhost}:${DB1_PORT_5432:5432}/database1
+				spring.datasource.username=user1
+				spring.datasource.password=passwd1
 				""");
 	}
 

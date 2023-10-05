@@ -14,6 +14,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings({ "JUnitMalformedDeclaration", "DataFlowIssue" })
 @ApplicationTest
 public class ContextRefreshApplicationTests {
 
@@ -21,10 +22,7 @@ public class ContextRefreshApplicationTests {
 	// since the app updates the property file after properties set
 	@AfterAll
 	static void cleanUp() throws IOException {
-		editExternalConfigurationProperties("""
-				simple.test=testVal
-				test=propVal
-				""");
+		editExternalConfigurationProperties();
 	}
 
 	@Test
@@ -49,9 +47,11 @@ public class ContextRefreshApplicationTests {
 			.consumeWith(result -> assertThat(new String(result.getResponseBodyContent())).isEqualTo("testValNew"));
 	}
 
-	private static void editExternalConfigurationProperties(String newFileContent) throws IOException {
-		Files.writeString(Path.of("./dev.properties"), newFileContent, Charset.defaultCharset(),
-				StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+	private static void editExternalConfigurationProperties() throws IOException {
+		Files.writeString(Path.of("./dev.properties"), """
+				simple.test=testVal
+				test=propVal
+				""", Charset.defaultCharset(), StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 
 }
