@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    hikari:
+      allow-pool-suspension: true
+    driver-class-name: org.postgresql.Driver
+  cloud:
+    refresh:
+      never-refreshable:
+      extra-refreshable:
+        - javax.sql.DataSource
+        - com.zaxxer.hikari.HikariDataSource
+  application:
+    name: context-refresh-hikari
+  config:
+    import: file:./cloud/context-refresh-hikari/dev.properties
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate.id.new_generator_mappings: false
+config:
+  path: ./cloud/context-refresh-hikari/dev.properties

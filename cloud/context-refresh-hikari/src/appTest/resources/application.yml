@@ -1,0 +1,6 @@
+spring:
+  config:
+    import: file:././dev.properties
+
+config:
+  path: ././dev.properties

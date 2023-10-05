@@ -1,6 +1,6 @@
-package com.example.contextrefresh;
+package com.example.contextrefreshhttp.controllers;
 
-import com.example.contextrefresh.config.SimpleConfigurationProperties;
+import com.example.contextrefreshhttp.config.SimpleConfigurationProperties;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
