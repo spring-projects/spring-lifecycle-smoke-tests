@@ -31,6 +31,9 @@ groups:
      - name: hibernate-mysql
        app_test: true
        test: false
+     - name: resttemplate-netty
+       app_test: true
+       test: false
      - name: scheduled
        app_test: true
        test: false
