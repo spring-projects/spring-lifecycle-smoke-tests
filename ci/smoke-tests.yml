@@ -18,6 +18,9 @@ groups:
      - name: context-refresh-http
        app_test: true
        test: true
+     - name: loadbalancing
+       app_test: true
+       test: false
   - name: data
     smoke_tests:
      - name: data-jdbc
