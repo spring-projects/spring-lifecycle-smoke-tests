@@ -58,5 +58,3 @@ mkdir -p /opt/gradle
 cd /opt/gradle
 curl -L $GRADLE_URL | bsdtar --strip-components=1 -xvf-
 chmod +x /opt/gradle/bin/gradle
-mkdir ~/.gradle
-echo 'systemProp.user.name=concourse' > ~/.gradle/gradle.properties
