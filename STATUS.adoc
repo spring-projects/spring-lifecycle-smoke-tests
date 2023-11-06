@@ -182,3 +182,19 @@ h|test
 
 |===
 
+== Security
+
+[%header,cols="4"]
+|===
+h|Smoke Test
+h|appTest
+h|checkpointRestoreAppTest
+h|test
+
+|hello-security
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/hello-security-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/hello-security-app-test]
+|image:https://ci.spring.io/api/v1/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/hello-security-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-restore-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/hello-security-cr-app-test]
+|
+
+|===
+
