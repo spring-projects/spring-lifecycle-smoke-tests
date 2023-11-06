@@ -84,3 +84,8 @@ groups:
      - name: spring-pulsar-reactive
        app_test: true
        test: false
+  - name: security
+    smoke_tests:
+     - name: hello-security
+       app_test: true
+       test: false
