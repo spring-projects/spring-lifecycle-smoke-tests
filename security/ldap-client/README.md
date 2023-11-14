@@ -1,0 +1,1 @@
+Tests Spring LDAP Client
