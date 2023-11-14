@@ -39,7 +39,7 @@ public class SpringPulsarApplication {
 		System.out.println("Message Received (@PulsarListener): " + message);
 	}
 
-	@PulsarReader(topics = "crac-demo-topic2", subscriptionName = "crac-demo-sub2", startMessageId = "earliest")
+	@PulsarReader(topics = "crac-demo-topic2", startMessageId = "earliest")
 	void readMessageFromTopic(Greeting message) {
 		System.out.println("Message Received (@PulsarReader): " + message);
 	}
