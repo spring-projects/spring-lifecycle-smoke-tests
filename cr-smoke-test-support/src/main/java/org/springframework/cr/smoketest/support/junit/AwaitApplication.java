@@ -38,8 +38,7 @@ class AwaitApplication implements BeforeAllCallback {
 	private final Pattern APPLICATION_STARTED = Pattern
 		.compile("Started [A-Za-z0-9]+ in [0-9\\.]+ seconds \\(process running for [0-9\\.]+\\)");
 
-	private final Pattern APPLICATION_RE_STARTED = Pattern
-		.compile("Spring-managed lifecycle restart completed");
+	private final Pattern APPLICATION_RE_STARTED = Pattern.compile("Spring-managed lifecycle restart completed");
 
 	@Override
 	public void beforeAll(ExtensionContext context) throws Exception {
