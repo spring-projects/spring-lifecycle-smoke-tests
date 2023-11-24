@@ -11,7 +11,7 @@ dependencies {
     implementation("jakarta.persistence:jakarta.persistence-api")
     implementation("org.hibernate.orm:hibernate-core")
 
-    implementation("org.crac:crac:$cracVersion")
+    implementation("org.crac:crac")
     implementation(project(":cr-listener"))
 
     runtimeOnly("com.mysql:mysql-connector-j")

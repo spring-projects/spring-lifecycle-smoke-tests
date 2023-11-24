@@ -13,7 +13,7 @@ dependencies {
 	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation(project(":cr-listener"))
 	implementation("org.springframework.cloud:spring-cloud-starter:${springCloudStarterVersion}")
 	runtimeOnly("org.postgresql:postgresql")

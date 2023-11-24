@@ -23,7 +23,7 @@ dependencies {
 	implementation("io.micrometer:micrometer-core")
 	implementation("com.jayway.jsonpath:json-path")
 
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation(project(":cr-listener"))
 
 	runtimeOnly("com.h2database:h2")

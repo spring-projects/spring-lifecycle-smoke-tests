@@ -11,7 +11,7 @@ dependencies {
 	implementation("org.apache.kafka:kafka-streams")
 	implementation("com.fasterxml.jackson.core:jackson-databind")
 
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation(project(":cr-listener"))
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

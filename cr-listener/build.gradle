@@ -14,5 +14,5 @@ dependencies {
 	api(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
 	api("org.springframework:spring-context")
 	api("org.springframework.boot:spring-boot")
-	compileOnly("org.crac:crac:$cracVersion")
+	compileOnly("org.crac:crac")
 }

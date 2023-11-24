@@ -10,7 +10,7 @@ dependencies {
 		implementation("org.springframework:spring-web:6.1.0-SNAPSHOT")
 	}
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation(project(":cr-listener"))
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

@@ -10,7 +10,7 @@ dependencies {
 
 	implementation("org.springframework.amqp:spring-rabbit:3.0.8")
 
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation(project(":cr-listener"))
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

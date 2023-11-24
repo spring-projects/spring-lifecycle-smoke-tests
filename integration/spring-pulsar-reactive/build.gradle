@@ -13,7 +13,7 @@ dependencies {
 		implementation('org.springframework.pulsar:spring-pulsar-reactive:1.0.0-SNAPSHOT')
 	}
 
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation(project(":cr-listener"))
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
