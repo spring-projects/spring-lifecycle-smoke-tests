@@ -10,7 +10,7 @@ dependencies {
 	implementation("org.springframework.session:spring-session-data-redis")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation(project(":cr-listener"))
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

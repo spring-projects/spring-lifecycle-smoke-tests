@@ -9,7 +9,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 	implementation("com.squareup.okhttp3:mockwebserver")
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation(project(":cr-listener"))
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

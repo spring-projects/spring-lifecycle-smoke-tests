@@ -10,7 +10,7 @@ dependencies {
 	implementation("com.h2database:h2")
 	implementation("org.springframework.session:spring-session-jdbc")
 
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation(project(":cr-listener"))
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

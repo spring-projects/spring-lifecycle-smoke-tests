@@ -14,7 +14,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.security:spring-security-ldap")
 	implementation("com.unboundid:unboundid-ldapsdk")
-	implementation("org.crac:crac:$cracVersion")
+	implementation("org.crac:crac")
 	implementation("org.apache.commons:commons-pool2")
 	implementation(project(":cr-listener"))
 
