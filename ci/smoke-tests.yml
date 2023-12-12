@@ -86,6 +86,29 @@ groups:
        test: false
   - name: security
     smoke_tests:
-     - name: hello-security
+     - name: ldap-client
+       app_test: true
+       test: true
+     - name: security-ldap
+       app_test: true
+       test: true
+     - name: security-oauth2-authorization-server
+       app_test: true
+       test: false
+     - name: security-oauth2-resource-server
+       app_test: true
+       test: false
+     - name: security-webflux
+       app_test: true
+       test: false
+     - name: security-webmvc
+       app_test: true
+       test: false
+  - name: session
+    smoke_tests:
+     - name: session-jdbc
+       app_test: true
+       test: false
+     - name: session-redis-webflux
        app_test: true
        test: false
