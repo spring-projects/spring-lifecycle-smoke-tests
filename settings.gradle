@@ -22,7 +22,7 @@ plugins {
 	id "io.spring.ge.conventions" version "0.0.13"
 }
 
-rootProject.name="spring-checkpoint-restore-smoke-tests"
+rootProject.name="spring-lifecycle-smoke-tests"
 
 include "cr-smoke-test-support"
 include "cr-listener"

@@ -1,7 +1,7 @@
 #@ github = {
 #@   "organization": "spring-projects",
-#@   "repository": "spring-checkpoint-restore-smoke-tests",
-#@   "uri": "https://github.com/spring-projects/spring-checkpoint-restore-smoke-tests.git"
+#@   "repository": "spring-lifecycle-smoke-tests",
+#@   "uri": "https://github.com/spring-projects/spring-lifecycle-smoke-tests.git"
 #@ }
 #@ docker_hub = {
 #@   "organization": "springci"
