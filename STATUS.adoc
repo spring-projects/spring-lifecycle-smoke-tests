@@ -2,6 +2,8 @@
 :toc:
 :toc-title: Projects
 
+Check each test for potential configuration guidance.
+
 == Boot
 
 [%header,cols="4"]
@@ -11,12 +13,12 @@ h|appTest
 h|checkpointRestoreAppTest
 h|test
 
-|actuator-webflux
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/boot/actuator-webflux[actuator-webflux]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/actuator-webflux-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/actuator-webflux-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/actuator-webflux-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/actuator-webflux-cr-app-test]
 |
 
-|actuator-webmvc
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/boot/actuator-webmvc[actuator-webmvc]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/actuator-webmvc-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/actuator-webmvc-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/actuator-webmvc-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/actuator-webmvc-cr-app-test]
 |
@@ -32,22 +34,22 @@ h|appTest
 h|checkpointRestoreAppTest
 h|test
 
-|context-refresh
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/context-refresh[context-refresh]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-cr-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-test]
 
-|context-refresh-hikari
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/context-refresh-hikari[context-refresh-hikari]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-hikari-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-hikari-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-hikari-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-hikari-cr-app-test]
 |
 
-|context-refresh-http
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/context-refresh-http[context-refresh-http]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-http-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-http-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-http-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-http-cr-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-http-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/context-refresh-http-test]
 
-|loadbalancing
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/loadbalancing[loadbalancing]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/loadbalancing-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/loadbalancing-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/loadbalancing-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/loadbalancing-cr-app-test]
 |
@@ -63,17 +65,17 @@ h|appTest
 h|checkpointRestoreAppTest
 h|test
 
-|data-jdbc
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-jdbc[data-jdbc]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-jdbc-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-jdbc-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-jdbc-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-jdbc-cr-app-test]
 |
 
-|data-jpa
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-jpa[data-jpa]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-jpa-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-jpa-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-jpa-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-jpa-cr-app-test]
 |
 
-|data-redis
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-redis[data-redis]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-redis-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-redis-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-redis-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/data-redis-cr-app-test]
 |
@@ -89,42 +91,42 @@ h|appTest
 h|checkpointRestoreAppTest
 h|test
 
-|hibernate-mysql
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/hibernate-mysql[hibernate-mysql]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/hibernate-mysql-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/hibernate-mysql-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/hibernate-mysql-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/hibernate-mysql-cr-app-test]
 |
 
-|resttemplate-netty
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/resttemplate-netty[resttemplate-netty]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/resttemplate-netty-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/resttemplate-netty-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/resttemplate-netty-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/resttemplate-netty-cr-app-test]
 |
 
-|scheduled
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/scheduled[scheduled]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/scheduled-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/scheduled-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/scheduled-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/scheduled-cr-app-test]
 |
 
-|webclient-netty
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webclient-netty[webclient-netty]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webclient-netty-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webclient-netty-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webclient-netty-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webclient-netty-cr-app-test]
 |
 
-|webflux-netty
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webflux-netty[webflux-netty]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-cr-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-netty-test]
 
-|webflux-undertow
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webflux-undertow[webflux-undertow]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-cr-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webflux-undertow-test]
 
-|webmvc-jetty
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webmvc-jetty[webmvc-jetty]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-cr-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-jetty-test]
 
-|webmvc-tomcat
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webmvc-tomcat[webmvc-tomcat]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-cr-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/webmvc-tomcat-test]
@@ -140,42 +142,42 @@ h|appTest
 h|checkpointRestoreAppTest
 h|test
 
-|integration-basic
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-basic[integration-basic]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-basic-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-basic-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-basic-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-basic-cr-app-test]
 |
 
-|integration-webfux-data
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-webfux-data[integration-webfux-data]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-webfux-data-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-webfux-data-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-webfux-data-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/integration-webfux-data-cr-app-test]
 |
 
-|spring-amqp-rabbit
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-amqp-rabbit[spring-amqp-rabbit]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-amqp-rabbit-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-amqp-rabbit-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-amqp-rabbit-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-amqp-rabbit-cr-app-test]
 |
 
-|spring-kafka
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-kafka[spring-kafka]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-cr-app-test]
 |
 
-|spring-kafka-avro
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-kafka-avro[spring-kafka-avro]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-avro-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-avro-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-avro-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-avro-cr-app-test]
 |
 
-|spring-kafka-streams
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-kafka-streams[spring-kafka-streams]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-streams-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-streams-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-streams-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-kafka-streams-cr-app-test]
 |
 
-|spring-pulsar
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-pulsar[spring-pulsar]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-pulsar-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-pulsar-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-pulsar-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-pulsar-cr-app-test]
 |
 
-|spring-pulsar-reactive
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-pulsar-reactive[spring-pulsar-reactive]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-pulsar-reactive-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-pulsar-reactive-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-pulsar-reactive-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/spring-pulsar-reactive-cr-app-test]
 |
@@ -191,32 +193,32 @@ h|appTest
 h|checkpointRestoreAppTest
 h|test
 
-|ldap-client
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/ldap-client[ldap-client]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/ldap-client-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/ldap-client-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/ldap-client-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/ldap-client-cr-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/ldap-client-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/ldap-client-test]
 
-|security-ldap
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-ldap[security-ldap]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-ldap-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-ldap-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-ldap-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-ldap-cr-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-ldap-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-ldap-test]
 
-|security-oauth2-authorization-server
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-oauth2-authorization-server[security-oauth2-authorization-server]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-oauth2-authorization-server-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-oauth2-authorization-server-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-oauth2-authorization-server-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-oauth2-authorization-server-cr-app-test]
 |
 
-|security-oauth2-resource-server
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-oauth2-resource-server[security-oauth2-resource-server]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-oauth2-resource-server-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-oauth2-resource-server-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-oauth2-resource-server-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-oauth2-resource-server-cr-app-test]
 |
 
-|security-webflux
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-webflux[security-webflux]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-webflux-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-webflux-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-webflux-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-webflux-cr-app-test]
 |
 
-|security-webmvc
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-webmvc[security-webmvc]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-webmvc-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-webmvc-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-webmvc-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/security-webmvc-cr-app-test]
 |
@@ -232,12 +234,12 @@ h|appTest
 h|checkpointRestoreAppTest
 h|test
 
-|session-jdbc
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/session/session-jdbc[session-jdbc]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/session-jdbc-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/session-jdbc-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/session-jdbc-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/session-jdbc-cr-app-test]
 |
 
-|session-redis-webflux
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/session/session-redis-webflux[session-redis-webflux]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/session-redis-webflux-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/session-redis-webflux-app-test]
 |image:https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/session-redis-webflux-cr-app-test/badge[link=https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/session-redis-webflux-cr-app-test]
 |
