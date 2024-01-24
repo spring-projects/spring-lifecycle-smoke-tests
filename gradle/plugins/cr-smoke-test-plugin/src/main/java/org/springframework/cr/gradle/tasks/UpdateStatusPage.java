@@ -44,6 +44,8 @@ public abstract class UpdateStatusPage extends AbstractSmokeTestsTask {
 		lines.add(":toc:");
 		lines.add(":toc-title: Projects");
 		lines.add("");
+		lines.add("Check each test for potential configuration guidance.");
+		lines.add("");
 		smokeTests().forEach((group, tests) -> {
 			lines.add("== " + capitalize(group));
 			lines.add("");
@@ -55,7 +57,7 @@ public abstract class UpdateStatusPage extends AbstractSmokeTestsTask {
 			}
 			lines.add("");
 			for (SmokeTest test : tests) {
-				lines.add("|" + test.name());
+				lines.add("|" + testUrl(group, test.name()) + "[" + test.name() + "]");
 				for (TestType testType : TestType.values()) {
 					lines.add("|" + testType.badge(test));
 				}
@@ -73,6 +75,10 @@ public abstract class UpdateStatusPage extends AbstractSmokeTestsTask {
 			buffer.append(buffer.isEmpty() ? Character.toUpperCase(c) : c);
 		}
 		return buffer.toString();
+	}
+
+	private String testUrl(String group, String name) {
+		return "https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/" + group + "/" + name;
 	}
 
 	private enum TestType {
