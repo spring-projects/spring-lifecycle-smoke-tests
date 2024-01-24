@@ -1,1 +1,21 @@
 Tests if Spring Data JPA with Hibernate, MySQL & HikariCP is working.
+
+=== CRaC configuration guidance
+
+In order to allow checkpoint/restore to work as expected, Hikari pool suspension should be enabled:
+
+```
+spring.datasource.hikari.allow-pool-suspension=true
+```
+
+Non-embedded databases require extra configuration to avoid Hibernate to contact the remote database when creating the checkpoint:
+```
+# Specify explicitly the dialect (here for PostgreSQL, adapt for your database)
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+# Disable Hibernate usage of JDBC metadata
+spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+
+# Database initialization will typically be performed outside of Spring lifecycle
+spring.sql.init.mode=never
+```
