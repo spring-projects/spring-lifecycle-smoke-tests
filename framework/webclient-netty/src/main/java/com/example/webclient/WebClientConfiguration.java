@@ -2,7 +2,6 @@ package com.example.webclient;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.client.reactive.ClientHttpConnector;
 import org.springframework.util.StringUtils;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -10,12 +9,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 class WebClientConfiguration {
 
 	@Bean
-	WebClient webClient(WebClient.Builder builder, ClientHttpConnector clientHttpConnector) {
+	WebClient webClient(WebClient.Builder builder) {
 		// TODO Check why run-dev-container.sh is broken by the commented line below
 		// String host = env("HTTPBIN_HOST", "localhost");
 		String host = "localhost";
 		int port = env("HTTPBIN_PORT_8080", 8080);
-		return builder.baseUrl("http://%s:%d/".formatted(host, port)).clientConnector(clientHttpConnector).build();
+		return builder.baseUrl("http://%s:%d/".formatted(host, port)).build();
 	}
 
 	private static String env(String name, String def) {
