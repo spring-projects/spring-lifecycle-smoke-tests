@@ -1,0 +1,9 @@
+Document lifecycle requirements with Spring Batch.
+
+== Lifecycle configuration guidance
+
+Spring Batch requires extra configuration to avoid early database interaction.
+
+```
+spring.batch.jdbc.initialize-schema=never
+```
