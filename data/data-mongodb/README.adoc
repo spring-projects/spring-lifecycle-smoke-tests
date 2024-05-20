@@ -1,0 +1,9 @@
+Document lifecycle requirements with Spring Data MongoDB.
+
+== Lifecycle configuration guidance
+
+Spring Data MongoDB requires extra configuration to avoid early database interaction.
+
+```
+spring.data.mongodb.auto-index-creation=false
+```
