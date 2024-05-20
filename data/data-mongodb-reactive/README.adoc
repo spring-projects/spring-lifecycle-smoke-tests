@@ -1,0 +1,9 @@
+Document lifecycle requirements with Spring Data MongoDB Reactive.
+
+== Lifecycle configuration guidance
+
+Spring Data MongoDB Reactive requires extra configuration to avoid early database interaction.
+
+```
+spring.data.mongodb.auto-index-creation=false
+```
