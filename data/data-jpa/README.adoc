@@ -2,18 +2,21 @@ Tests if Spring Data JPA with Hibernate, MySQL & HikariCP is working.
 
 == Lifecycle configuration guidance
 
-Non-embedded databases require extra configuration to avoid Hibernate to contact the remote database before the Lifecycle refresh phase:
+Non-embedded databases require extra configuration to avoid Hibernate to contact the remote database before the refresh phase:
 ```
-# Specify explicitly the dialect (here for MySQL, adapt for your database)
-spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+# Specify explicitly the dialect (here for PostgreSQL, adapt for your database)
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
 
 # Disable Hibernate usage of JDBC metadata
-spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+# Use spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false for Hibernate 6.4 and ealier
+spring.jpa.properties.hibernate.boot.allow_jdbc_metadata_access=false
 
-# Database initialization will typically be performed outside of Spring lifecycle
+# Database initialization should typically be performed outside of Spring lifecycle
 spring.jpa.hibernate.ddl-auto=none
 spring.sql.init.mode=never
 ```
+
+NOTE: The supported dialects can be found https://docs.jboss.org/hibernate/orm/6.5/userguide/html_single/Hibernate_User_Guide.html#compatibility-database[here].
 
 === CRaC
 
