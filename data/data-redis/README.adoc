@@ -1,1 +1,16 @@
-Tests if Data Redis with Lettuce is working.
+Tests if Spring Data Redis with Lettuce is working.
+
+== Lifecycle configuration guidance
+
+Spring Data Redis requires extra configuration to avoid pre-warming the pool of connections.
+
+With Lettuce:
+```
+spring.data.redis.lettuce.pool.enabled=false
+```
+
+With Jedis:
+```
+spring.data.redis.jedis.pool.enabled=false
+```
+
