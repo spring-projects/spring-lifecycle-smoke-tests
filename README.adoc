@@ -2,7 +2,7 @@ image:https://img.shields.io/badge/3.2.x-status-blue["Status", link="https://git
 
 = Spring Lifecycle Smoke Tests
 
-A suite of tests for applications using checkpoint/restore as implemented by https://github.com/CRaC/docs[Project CRaC] and as documented in https://docs.spring.io/spring-framework/reference/6.1/integration/checkpoint-restore.html[Spring Framework reference documentation].
+A suite of tests and documentation for Spring Boot applications using either https://docs.spring.io/spring-framework/reference/integration/cds.html[CDS] or https://docs.spring.io/spring-framework/reference/6.1/integration/checkpoint-restore.html[JVM Checkpoint Restore] as implemented by https://github.com/CRaC/docs[Project CRaC].
 There are two types of tests: unit tests and application tests.
 
 Unit tests can be run using the `test` task.
