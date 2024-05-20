@@ -1,0 +1,10 @@
+Document lifecycle requirements with Spring Data R2DBC.
+
+== Lifecycle configuration guidance
+
+Spring Data R2DBC requires extra configuration to avoid early database interaction.
+
+```
+# Database initialization should typically be performed outside of Spring lifecycle
+spring.sql.init.mode=never
+```
