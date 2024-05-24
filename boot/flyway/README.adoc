@@ -1,0 +1,9 @@
+Document lifecycle requirements with Flyway.
+
+== Lifecycle configuration guidance
+
+Flyway requires extra configuration to avoid early database interaction.
+
+```
+spring.flyway.enabled=false
+```
