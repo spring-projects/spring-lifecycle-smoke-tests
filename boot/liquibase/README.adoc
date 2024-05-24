@@ -1,0 +1,9 @@
+Document lifecycle requirements with Liquibase.
+
+== Lifecycle configuration guidance
+
+Liquibase requires extra configuration to avoid early database interaction.
+
+```
+spring.liquibase.enabled=false
+```
