@@ -17,7 +17,7 @@ spring.sql.init.mode=never
 
 NOTE: The supported dialects can be found https://docs.jboss.org/hibernate/orm/6.5/userguide/html_single/Hibernate_User_Guide.html#compatibility-database[here].
 
-NOTE: With Hibernate 6.4 and ealier, use `spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false` instead
+NOTE: With Spring Boot 3.2 / Hibernate 6.4 and earlier, use `spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false` instead
 of `spring.jpa.properties.hibernate.boot.allow_jdbc_metadata_access=false`.
 
 === JVM Checkpoint Restore
