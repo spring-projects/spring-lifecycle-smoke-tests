@@ -1,4 +1,4 @@
-Tests and documentation for Spring Data Redis with Lettuce.
+Tests and documentation for Spring Data Redis.
 
 == Prevent early database interaction
 
