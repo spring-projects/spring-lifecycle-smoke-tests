@@ -1,6 +1,6 @@
-image:https://img.shields.io/badge/3.2.x-status-blue["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/blob/main/STATUS.adoc"]
-
 = Spring Lifecycle Smoke Tests
+
+image:https://img.shields.io/badge/3.2.x-status-blue["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/blob/main/STATUS.adoc"]
 
 A suite of tests and documentation for Spring Boot applications using a custom lifecycle to perform a training run with
 https://docs.spring.io/spring-framework/reference/integration/cds.html[CDS] or
