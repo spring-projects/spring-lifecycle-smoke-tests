@@ -1,6 +1,6 @@
-Tests if Spring Data Redis with Lettuce is working.
+Tests and documentation for Spring Data Redis with Lettuce.
 
-== Lifecycle configuration guidance
+== Prevent early database interaction
 
 Spring Data Redis requires extra configuration to avoid pre-warming the pool of connections.
 

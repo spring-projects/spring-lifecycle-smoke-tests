@@ -1,6 +1,6 @@
-Document lifecycle requirements with Spring Data MongoDB Reactive.
+Tests and documentation for Spring Data MongoDB Reactive.
 
-== Lifecycle configuration guidance
+== Prevent early database interaction
 
 Spring Data MongoDB Reactive requires extra configuration to avoid early database interaction.
 

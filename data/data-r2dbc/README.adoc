@@ -1,6 +1,6 @@
 Document lifecycle requirements with Spring Data R2DBC.
 
-== Lifecycle configuration guidance
+== Prevent early database interaction
 
 Spring Data R2DBC requires extra configuration to avoid early database interaction.
 

@@ -1,6 +1,6 @@
-Tests if Spring Data JPA with Hibernate, MySQL & HikariCP is working.
+Tests and documentation for Spring Data JPA with Hibernate and HikariCP.
 
-== Lifecycle configuration guidance
+== Prevent early database interaction
 
 Non-embedded databases require extra configuration to avoid Hibernate to contact the remote database before the refresh phase:
 ```
@@ -8,7 +8,6 @@ Non-embedded databases require extra configuration to avoid Hibernate to contact
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
 
 # Disable Hibernate usage of JDBC metadata
-# Use spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false for Hibernate 6.4 and ealier
 spring.jpa.properties.hibernate.boot.allow_jdbc_metadata_access=false
 
 # Database initialization should typically be performed outside of Spring lifecycle
@@ -18,7 +17,10 @@ spring.sql.init.mode=never
 
 NOTE: The supported dialects can be found https://docs.jboss.org/hibernate/orm/6.5/userguide/html_single/Hibernate_User_Guide.html#compatibility-database[here].
 
-=== CRaC
+NOTE: With Hibernate 6.4 and ealier, use `spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false` instead
+of `spring.jpa.properties.hibernate.boot.allow_jdbc_metadata_access=false`.
+
+=== JVM Checkpoint Restore
 
 In order to allow checkpoint/restore to work as expected, Hikari pool suspension should be enabled:
 

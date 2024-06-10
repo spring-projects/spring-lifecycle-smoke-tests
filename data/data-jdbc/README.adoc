@@ -1,6 +1,6 @@
-Tests if Spring Data JDBC with HikariCP is working.
+Tests and documentation for Spring Data JDBC with HikariCP.
 
-== Lifecycle configuration guidance
+== Prevent early database interaction
 
 Non-embedded databases require extra configuration to avoid Hibernate to contact the remote database before the refresh phase:
 
@@ -13,7 +13,7 @@ spring.data.jdbc.dialect=postgresql
 spring.sql.init.mode=never
 ```
 
-=== CRaC
+== JVM Checkpoint Restore
 
 In order to allow checkpoint/restore to work as expected, Hikari pool suspension should be enabled:
 

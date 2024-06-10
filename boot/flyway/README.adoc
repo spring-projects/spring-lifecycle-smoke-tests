@@ -1,6 +1,6 @@
-Document lifecycle requirements with Flyway.
+Tests and documentation for Flyway.
 
-== Lifecycle configuration guidance
+== Prevent early database interaction
 
 Flyway requires extra configuration to avoid early database interaction.
 

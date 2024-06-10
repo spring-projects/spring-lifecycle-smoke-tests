@@ -1,6 +1,6 @@
-Document lifecycle requirements with Spring Data MongoDB.
+Tests and documentation for Spring Data MongoDB.
 
-== Lifecycle configuration guidance
+== Prevent early database interaction
 
 Spring Data MongoDB requires extra configuration to avoid early database interaction.
 

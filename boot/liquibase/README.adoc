@@ -1,6 +1,6 @@
-Document lifecycle requirements with Liquibase.
+Tests and documentation for Liquibase.
 
-== Lifecycle configuration guidance
+== Prevent early database interaction
 
 Liquibase requires extra configuration to avoid early database interaction.
 
