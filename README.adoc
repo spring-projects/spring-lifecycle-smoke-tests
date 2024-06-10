@@ -8,8 +8,8 @@ https://docs.spring.io/spring-framework/reference/integration/checkpoint-restore
 
 == Training run configuration
 
-The training run of your application may require custom configuration, applied by default to your application or specifically to the training run, to prevent early database interaction for example,
-see related documentation depending on the dependencies used:
+The training run of your application may require custom configuration, applied by default to your application or specifically to the training run, to prevent early database interaction for example.
+See related documentation for the most common dependencies:
 
 - Spring Data https://github.com/sdeleuze/spring-lifecycle-smoke-tests/blob/main/data/data-jpa/README.adoc[JPA], https://github.com/sdeleuze/spring-lifecycle-smoke-tests/blob/main/data/data-jdbc/README.adoc[JDBC], https://github.com/sdeleuze/spring-lifecycle-smoke-tests/blob/main/data/data-r2dbc/README.adoc[R2DBC]
 - Spring Data https://github.com/sdeleuze/spring-lifecycle-smoke-tests/blob/main/data/data-mongodb/README.adoc[MongoDB], https://github.com/sdeleuze/spring-lifecycle-smoke-tests/blob/main/data/data-mongodb-reactive/README.adoc[MongoDB Reactive], https://github.com/sdeleuze/spring-lifecycle-smoke-tests/blob/main/data/data-redis/README.adoc[Redis]
