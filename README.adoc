@@ -2,34 +2,54 @@ image:https://img.shields.io/badge/3.2.x-status-blue["Status", link="https://git
 
 = Spring Lifecycle Smoke Tests
 
-A suite of tests and documentation for Spring Boot applications using either https://docs.spring.io/spring-framework/reference/integration/cds.html[CDS] or https://docs.spring.io/spring-framework/reference/6.1/integration/checkpoint-restore.html[JVM Checkpoint Restore] as implemented by https://github.com/CRaC/docs[Project CRaC].
+A suite of tests and documentation for Spring Boot applications using a custom lifecycle to perform a training run with
+https://docs.spring.io/spring-framework/reference/integration/cds.html[CDS] or
+https://docs.spring.io/spring-framework/reference/integration/checkpoint-restore.html[JVM Checkpoint Restore].
+
+== Training run configuration
+
+The training run of your application may require custom configuration, to prevent early database interaction for example,
+see related documentation depending on the dependencies used:
+
+- https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-jpa[Spring Data JPA]
+- https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-jdbc[Spring Data JDBC]
+- https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-r2dbc[Spring Data R2DBC]
+- https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-mongodb[Spring Data MongoDB]
+- https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-mongodb-reactive[Spring Data MongoDB Reactive]
+- https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-redis[Spring Data Redis]
+- https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/batch/batch[Spring Batch]
+- https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/boot/flyway[Flyway]
+- https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/boot/liquibase[Liquibase]
+
+== Tests
+
 There are two types of tests: unit tests and application tests.
 
 Unit tests can be run using the `test` task.
 
 The `appTest` task tests the application running on the JVM. The `checkpointRestoreAppTest` (also available with the shorter `cRAT` task name) task tests the application running on the JVM after a checkpoint/restore.
 
-== Prerequisites
+=== Prerequisites
 
-=== Linux or Windows via WSL2
+==== Linux or Windows via WSL2
 
-- CRaC enabled JDK such as https://www.azul.com/downloads/?package=jdk-crac#zulu[the one provided by Azul].
 - Docker to run external services such as database servers.
+- For CRaC, a CRaC enabled JDK such as https://bell-sw.com/pages/downloads/?package=jdk-crac[the one provided by Bellsoft].
 
 > NOTE: If using SDKMan then run `sdk env install`.
 
-=== Mac
+==== Mac
 
 - https://www.docker.com/products/docker-desktop/[Docker Desktop] (Colima + QEMU does not support CRaC JDK in a reliable way)
 - Use `./run-dev-container.sh` before running Gradle commands.
 
-== Contributing
+=== Contributing
 
 Please read and follow the link:CONTRIBUTING.adoc[contributing guide].
 
-== How to
+=== How to
 
-=== Run all of a project's smoke tests
+==== Run all of a project's smoke tests
 
 [source,]
 ----
@@ -43,7 +63,7 @@ for example
 ./gradlew :framework:webmvc-tomcat:build
 ----
 
-=== Run a specific type of tests for a project
+==== Run a specific type of tests for a project
 
 [source,]
 ----
@@ -63,15 +83,15 @@ for example
 ./gradlew :framework:webmvc-tomcat:appTest
 ----
 
-=== Add a new smoke test
+==== Add a new smoke test
 
 1. Create a new directory for your smoke test in the appropriate group
 2. Include the directory in `settings.gradle` (new groups only)
 3. Run `./gradlew updateInfrastructure` to add the smoke test to the status page and CI pipeline
 
-=== Test against local changes
+==== Test against local changes
 
-==== Your project uses Gradle
+===== Your project uses Gradle
 
 [source,]
 ----
@@ -82,7 +102,7 @@ Gradle https://docs.gradle.org/current/userguide/composite_builds.html#command_l
 
 _Hint: You can use `--include-build` multiple times._
 
-==== Your project uses Maven or --include-build does not work
+===== Your project uses Maven or --include-build does not work
 
 First, install the snapshots into your local Maven cache.
 You can now consume those snapshots using `-PfromMavenLocal` which takes an
@@ -103,7 +123,7 @@ You can also just specify:
 
 Here all the dependencies will be resolved from your local Maven cache.
 
-=== Override a dependency version
+==== Override a dependency version
 
 As the test doesn't use the Spring Dependency Management Plugin, you can't use the `ext['...'] = '...'` method.
 
@@ -122,7 +142,7 @@ dependencies {
 
 This works for direct and transitive dependencies.
 
-=== Use a custom event to trigger the checkpoint
+==== Use a custom event to trigger the checkpoint
 
 By default, `org.springframework.boot.context.event.ApplicationReadyEvent` is used to trigger the checkpoint when the
 application is ready. It is possible to specify another event to trigger the checkpoint with the following Gradle
