@@ -17,6 +17,10 @@ see related documentation depending on the dependencies used:
 - https://github.com/sdeleuze/spring-lifecycle-smoke-tests/blob/main/boot/flyway/README.adoc[Flyway]
 - https://github.com/sdeleuze/spring-lifecycle-smoke-tests/blob/main/boot/liquibase/README.adoc[Liquibase]
 
+NOTE: Keep in mind that with CDS, a regular startup lifecycle will be performed during the optimized run, while
+checkpoint/restore will resume the lifecyle where it was stopped, without refreshing the configuration unless you use
+https://cloud.spring.io/spring-cloud-commons/reference/html/#refresh-scope[Spring Cloud refresh scope].
+
 == Tests
 
 There are two types of tests: unit tests and application tests.
