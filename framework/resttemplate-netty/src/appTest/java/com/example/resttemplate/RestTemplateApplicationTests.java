@@ -6,8 +6,8 @@ import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
 
-import org.springframework.cr.smoketest.support.assertj.AssertableOutput;
-import org.springframework.cr.smoketest.support.junit.ApplicationTest;
+import org.springframework.lifecycle.smoketest.support.assertj.AssertableOutput;
+import org.springframework.lifecycle.smoketest.support.junit.ApplicationTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -20,16 +20,20 @@ public class MainController {
 
 	@GetMapping("/users")
 	public List<Person> users() {
-		return this.ldap.search().query((query) -> query.where("objectclass").is("person"))
-				.toList(new PersonContextMapper());
+		return this.ldap.search()
+			.query((query) -> query.where("objectclass").is("person"))
+			.toList(new PersonContextMapper());
 	}
 
 	private static final class PersonContextMapper extends AbstractContextMapper<Person> {
+
 		@Override
 		protected Person doMapFromContext(DirContextOperations ctx) {
 			Person.Essence essense = new Person.Essence(ctx);
 			essense.setUsername(ctx.getStringAttribute("uid"));
 			return (Person) essense.createUserDetails();
 		}
+
 	}
+
 }

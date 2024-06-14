@@ -1,17 +1,17 @@
 plugins {
 	id "java"
 	id "org.springframework.boot"
-	id "org.springframework.cr.smoke-test"
+	id "org.springframework.lifecycle.smoke-test"
 }
 
 dependencies {
 	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.crac:crac")
-	implementation(project(":cr-listener"))
+	implementation(project(":lifecycle-listener"))
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
-	appTestImplementation(project(":cr-smoke-test-support"))
+	appTestImplementation(project(":lifecycle-smoke-test-support"))
 	appTestImplementation("org.awaitility:awaitility:4.2.0")
 }

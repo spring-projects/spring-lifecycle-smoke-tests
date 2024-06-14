@@ -1,5 +1,5 @@
 pluginManagement {
-	includeBuild "gradle/plugins/cr-smoke-test-plugin"
+	includeBuild "gradle/plugins/lifecycle-smoke-test-plugin"
 	repositories {
 		gradlePluginPortal()
 		maven {
@@ -24,8 +24,8 @@ plugins {
 
 rootProject.name="spring-lifecycle-smoke-tests"
 
-include "cr-smoke-test-support"
-include "cr-listener"
+include "lifecycle-smoke-test-support"
+include "lifecycle-listener"
 
 ["boot", "cloud", "data", "framework", "integration", "security", "session"].each { group ->
 	file(group).eachDirMatch(~/[a-z].*/) { smokeTest ->

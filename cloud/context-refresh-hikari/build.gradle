@@ -1,7 +1,7 @@
 plugins {
 	id "java"
 	id "org.springframework.boot"
-	id "org.springframework.cr.smoke-test"
+	id "org.springframework.lifecycle.smoke-test"
 }
 
 // Not using Spring Cloud bom due to existing issues with dependency management
@@ -14,16 +14,16 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.crac:crac")
-	implementation(project(":cr-listener"))
+	implementation(project(":lifecycle-listener"))
 	implementation("org.springframework.cloud:spring-cloud-starter:${springCloudStarterVersion}")
 	runtimeOnly("org.postgresql:postgresql")
 
 
-	appTestImplementation(project(":cr-smoke-test-support"))
+	appTestImplementation(project(":lifecycle-smoke-test-support"))
 	appTestImplementation(project(":cloud:context-refresh-hikari"))
 }
 
-crSmokeTest {
+lifecycleSmokeTest {
 	webApplication = true
 }
 

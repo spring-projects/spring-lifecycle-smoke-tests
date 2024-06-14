@@ -1,7 +1,7 @@
 plugins {
 	id "java"
 	id "org.springframework.boot"
-	id "org.springframework.cr.smoke-test"
+	id "org.springframework.lifecycle.smoke-test"
 }
 
 dependencies {
@@ -10,11 +10,11 @@ dependencies {
 	implementation("org.springframework.integration:spring-integration-file")
 
 	implementation("org.crac:crac")
-	implementation(project(":cr-listener"))
+	implementation(project(":lifecycle-listener"))
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.integration:spring-integration-test")
 
-	appTestImplementation(project(":cr-smoke-test-support"))
+	appTestImplementation(project(":lifecycle-smoke-test-support"))
 	appTestImplementation("org.awaitility:awaitility:4.2.0")
 }

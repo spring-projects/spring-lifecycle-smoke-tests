@@ -1,7 +1,7 @@
 plugins {
     id "java"
     id "org.springframework.boot"
-    id "org.springframework.cr.smoke-test"
+    id "org.springframework.lifecycle.smoke-test"
 }
 
 ext {
@@ -13,15 +13,15 @@ dependencies {
             org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.crac:crac")
-    implementation(project(":cr-listener"))
+    implementation(project(":lifecycle-listener"))
     implementation("org.springframework.cloud:spring-cloud-starter:$springCloudStarterVersion")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
-    appTestImplementation(project(":cr-smoke-test-support"))
+    appTestImplementation(project(":lifecycle-smoke-test-support"))
 }
 
-crSmokeTest {
+lifecycleSmokeTest {
     webApplication = true
 }
 

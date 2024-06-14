@@ -25,8 +25,8 @@ import java.util.UUID;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 
-import org.springframework.cr.smoketest.support.assertj.AssertableOutput;
-import org.springframework.cr.smoketest.support.junit.ApplicationTest;
+import org.springframework.lifecycle.smoketest.support.assertj.AssertableOutput;
+import org.springframework.lifecycle.smoketest.support.junit.ApplicationTest;
 import org.springframework.util.StreamUtils;
 
 import static org.assertj.core.api.Assertions.assertThat;
