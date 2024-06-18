@@ -7,7 +7,7 @@ plugins {
 dependencies {
 	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
 	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.springframework.kafka:spring-kafka:3.0.10-SNAPSHOT") // TODO: remove the version once 3.0.10+ is released.
+	implementation("org.springframework.kafka:spring-kafka")
 	implementation("org.apache.kafka:kafka-streams")
 	implementation("com.fasterxml.jackson.core:jackson-databind")
 

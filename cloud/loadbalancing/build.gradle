@@ -6,7 +6,7 @@ plugins {
 
 // Not using Spring Cloud bom due to existing issues with dependency management
 ext {
-	set('springCloudCommonsVerions', "4.1.0")
+	set('springCloudCommonsVerions', "4.1.3")
 }
 
 dependencies {

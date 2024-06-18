@@ -8,9 +8,7 @@ dependencies {
 	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
 	implementation("org.springframework.boot:spring-boot-starter")
 
-	// TODO: update to non snapshot spring-kafka version when available.
-	// The spring-kafka 3.0.10+ is required due to https://github.com/spring-projects/spring-kafka/issues/2760
-	implementation("org.springframework.kafka:spring-kafka:3.0.10-SNAPSHOT")
+	implementation("org.springframework.kafka:spring-kafka")
 
 	implementation("com.fasterxml.jackson.core:jackson-databind")
 

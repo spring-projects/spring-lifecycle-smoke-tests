@@ -26,7 +26,7 @@ Deploy the pipeline using the following command:
 
 [source]
 ----
-$ fly -t spring-lifecycle-smoke-tests set-pipeline -p spring-lifecycle-smoke-tests-3.2.x -c ci/pipeline.yml
+$ fly -t spring-lifecycle-smoke-tests set-pipeline -p spring-lifecycle-smoke-tests-3.3.x -c ci/pipeline.yml
 ----
 
 NOTE: This assumes that you have Vault integration configured with the appropriate secrets.

@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
 	constraints {
-		implementation("org.springframework.security:spring-security-ldap:6.2.0-SNAPSHOT")
+		implementation("org.springframework.security:spring-security-ldap")
 	}
 
 	implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
