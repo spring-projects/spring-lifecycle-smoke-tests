@@ -112,12 +112,12 @@ public abstract class UpdateStatusPage extends AbstractSmokeTestsTask {
 		}
 
 		private String badgeUrl(String name, String suffix) {
-			return "https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/"
+			return "https://ci.spring.io/api/v1/teams/spring-lifecycle-smoke-tests/pipelines/spring-lifecycle-smoke-tests-3.2.x/jobs/"
 					+ name + suffix + "/badge";
 		}
 
 		private String jobUrl(String name, String suffix) {
-			return "https://ci.spring.io/teams/spring-checkpoint-lifecycle-tests/pipelines/spring-checkpoint-restore-smoke-tests-3.2.x/jobs/"
+			return "https://ci.spring.io/teams/spring-lifecycle-smoke-tests/pipelines/spring-lifecycle-smoke-tests-3.2.x/jobs/"
 					+ name + suffix;
 		}
 

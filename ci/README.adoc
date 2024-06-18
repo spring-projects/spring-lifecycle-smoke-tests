@@ -15,18 +15,18 @@ ytt -f ci/pipeline-template/schema.yml -f ci/pipeline-template/pipeline.yml --da
 
 
 == Deploying
-Ensure that you've set up the `spring-checkpoint-restore-smoke-tests` target and can login:
+Ensure that you've set up the `spring-lifecycle-smoke-tests` target and can login:
 
 [source]
 ----
-$ fly -t spring-checkpoint-restore-smoke-tests login -n spring-checkpoint-restore-smoke-tests -c https://ci.spring.io
+$ fly -t spring-lifecycle-smoke-tests login -n spring-lifecycle-smoke-tests -c https://ci.spring.io
 ----
 
 Deploy the pipeline using the following command:
 
 [source]
 ----
-$ fly -t spring-checkpoint-restore-smoke-tests set-pipeline -p spring-checkpoint-restore-smoke-tests-3.2.x -c ci/pipeline.yml
+$ fly -t spring-lifecycle-smoke-tests set-pipeline -p spring-lifecycle-smoke-tests-3.2.x -c ci/pipeline.yml
 ----
 
 NOTE: This assumes that you have Vault integration configured with the appropriate secrets.
