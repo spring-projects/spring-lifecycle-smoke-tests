@@ -1,6 +1,6 @@
 = Spring Lifecycle Smoke Tests
 
-image:https://img.shields.io/badge/3.3.x-status-blue["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/blob/main/STATUS.adoc"]
+image:https://img.shields.io/badge/3.3.x-status-blue["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/blob/main/STATUS.adoc"] image:https://img.shields.io/badge/Revved%20up%20by-Develocity-06A0CE?logo=Gradle&labelColor=02303A["Revved up by Develocity", link="https://ge.spring.io/scans?search.rootProjectNames=spring-lifecycle-smoke-tests"]
 
 A suite of tests and documentation for Spring Boot applications using a custom lifecycle to perform a training run with
 https://docs.spring.io/spring-framework/reference/integration/cds.html[CDS] or
