@@ -1,0 +1,5 @@
+services:
+  cassandra:
+    image: 'cassandra:4'
+    ports:
+      - '9042'
