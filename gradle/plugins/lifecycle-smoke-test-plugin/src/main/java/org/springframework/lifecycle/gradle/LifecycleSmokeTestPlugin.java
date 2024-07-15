@@ -43,8 +43,9 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin;
 import org.springframework.boot.gradle.tasks.bundling.BootJar;
 import org.springframework.lifecycle.gradle.dsl.LifecycleSmokeTestExtension;
 import org.springframework.lifecycle.gradle.tasks.AppTest;
-import org.springframework.lifecycle.gradle.tasks.DescribeSmokeTests;
+import org.springframework.lifecycle.gradle.tasks.DescribeSmokeTest;
 import org.springframework.lifecycle.gradle.tasks.RestoreJvmApplication;
+import org.springframework.lifecycle.gradle.tasks.SmokeTest;
 import org.springframework.lifecycle.gradle.tasks.StartAndCheckpointJvmApplication;
 import org.springframework.lifecycle.gradle.tasks.StartApplication;
 import org.springframework.lifecycle.gradle.tasks.StartJvmApplication;
@@ -101,17 +102,25 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 		configureAppTests(project, extension, appTest);
 		configureTests(project);
 		configureKotlin(project, javaExtension);
-		Configuration smokeTests = project.getConfigurations().create("smokeTests");
-		TaskProvider<DescribeSmokeTests> describeSmokeTests = project.getTasks()
-			.register("describeSmokeTests", DescribeSmokeTests.class);
-		describeSmokeTests.configure((task) -> {
-			task.getOutputDirectory().set(project.getLayout().getBuildDirectory().dir(task.getName()));
-			task.setAppTests(appTest.getAllSource());
-			task.setTests(javaExtension.getSourceSets().getByName(SourceSet.TEST_SOURCE_SET_NAME).getAllSource());
+		Provider<SmokeTest> smokeTestProvider = project.provider(() -> {
+			boolean runTests = false;
+			boolean runAppTests = false;
+			if (!javaExtension.getSourceSets().getByName(SourceSet.TEST_SOURCE_SET_NAME).getAllSource().isEmpty()) {
+				runTests = true;
+			}
+			if (!appTest.getAllSource().isEmpty()) {
+				runAppTests = true;
+			}
+			return new SmokeTest(project.getName(), project.getParent().getName(), project.getPath(), runTests,
+					runAppTests);
 		});
-		project.artifacts((artifacts) -> artifacts.add(smokeTests.getName(), describeSmokeTests));
+		TaskProvider<DescribeSmokeTest> describeSmokeTest = project.getTasks()
+			.register("describeSmokeTest", DescribeSmokeTest.class);
+		describeSmokeTest.configure((task) -> task.getSmokeTest().set(smokeTestProvider));
+		Configuration smokeTests = project.getConfigurations().create("smokeTests");
+		project.artifacts((artifacts) -> artifacts.add(smokeTests.getName(), describeSmokeTest));
 		DependencyHandler dependencies = project.getRootProject().getDependencies();
-		dependencies.add("smokeTests",
+		dependencies.add(smokeTests.getName(),
 				dependencies.project(Map.of("path", project.getPath(), "configuration", smokeTests.getName())));
 	}
 

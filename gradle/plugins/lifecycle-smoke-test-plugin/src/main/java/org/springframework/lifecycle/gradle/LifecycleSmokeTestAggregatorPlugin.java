@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 the original author or authors.
+ * Copyright 2022-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.springframework.lifecycle.gradle;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.artifacts.Configuration;
+import org.gradle.api.tasks.Sync;
 import org.gradle.api.tasks.TaskProvider;
 
 import org.springframework.lifecycle.gradle.tasks.UpdateConcoursePipeline;
@@ -36,6 +37,10 @@ public class LifecycleSmokeTestAggregatorPlugin implements Plugin<Project> {
 	@Override
 	public void apply(Project project) {
 		Configuration smokeTests = project.getConfigurations().create("smokeTests");
+		project.getTasks().register("describeSmokeTests", Sync.class, (sync) -> {
+			sync.into(project.getLayout().getBuildDirectory().dir("smoke-tests"));
+			sync.from(smokeTests);
+		});
 		TaskProvider<UpdateStatusPage> updateStatusPage = project.getTasks()
 			.register("updateStatusPage", UpdateStatusPage.class, (task) -> {
 				task.setSmokeTests(smokeTests);
