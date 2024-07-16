@@ -20,17 +20,13 @@ import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.artifacts.Configuration;
 import org.gradle.api.tasks.Sync;
-import org.gradle.api.tasks.TaskProvider;
-
-import org.springframework.lifecycle.gradle.tasks.UpdateConcoursePipeline;
-import org.springframework.lifecycle.gradle.tasks.UpdateStatusPage;
 
 /**
- * Plugin for a project that aggregates the smoke tests to provide status and a CI
- * pipeline.
+ * Plugin for a project that aggregates descriptions of the smoke tests.
  *
  * @author Andy Wilkinson
  * @author Sebastien Deleuze
+ * @author Stephane Nicoll
  */
 public class LifecycleSmokeTestAggregatorPlugin implements Plugin<Project> {
 
@@ -41,18 +37,6 @@ public class LifecycleSmokeTestAggregatorPlugin implements Plugin<Project> {
 			sync.into(project.getLayout().getBuildDirectory().dir("smoke-tests"));
 			sync.from(smokeTests);
 		});
-		TaskProvider<UpdateStatusPage> updateStatusPage = project.getTasks()
-			.register("updateStatusPage", UpdateStatusPage.class, (task) -> {
-				task.setSmokeTests(smokeTests);
-				task.getOutputFile().set(project.file("STATUS.adoc"));
-			});
-		TaskProvider<UpdateConcoursePipeline> updateConcoursePipeline = project.getTasks()
-			.register("updateConcoursePipeline", UpdateConcoursePipeline.class, (task) -> {
-				task.setSmokeTests(smokeTests);
-				task.getOutputFile().set(project.file("ci/smoke-tests.yml"));
-			});
-		project.getTasks()
-			.register("updateInfrastructure", (task) -> task.dependsOn(updateStatusPage, updateConcoursePipeline));
 	}
 
 }
