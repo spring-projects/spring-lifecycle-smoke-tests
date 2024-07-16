@@ -48,7 +48,8 @@ public class LifecycleSmokeTestExtension {
 	}
 
 	/**
-	 * @return The Spring event class name to be used to trigger a checkpoint.
+	 * Return the Spring event class name to be used to trigger a checkpoint.
+	 * @return the event class name
 	 */
 	public Property<String> getCheckpointEvent() {
 		return this.checkpointEvent;

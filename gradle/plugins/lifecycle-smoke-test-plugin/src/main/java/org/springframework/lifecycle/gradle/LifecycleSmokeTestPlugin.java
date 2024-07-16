@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 the original author or authors.
+ * Copyright 2022-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,9 +51,9 @@ import org.springframework.lifecycle.gradle.tasks.StartJvmApplication;
 import org.springframework.lifecycle.gradle.tasks.StopApplication;
 
 /**
- * {@link Plugin} for a lifecycle smoke test project. Configures an {@code appTest} source set
- * and tasks for running the contained tests against the application running on the JVM
- * and as a native image.
+ * {@link Plugin} for a lifecycle smoke test project. Configures an {@code appTest} source
+ * set and tasks for running the contained tests against the application running on the
+ * JVM and as a native image.
  *
  * @author Andy Wilkinson
  * @author Moritz Halbritter
@@ -64,13 +64,13 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 	@Override
 	public void apply(Project project) {
 		project.getPlugins()
-				.withType(JavaPlugin.class, (javaPlugin) -> project.getPlugins()
-						.withType(SpringBootPlugin.class, (bootPlugin) -> configureBootJavaProject(project)));
+			.withType(JavaPlugin.class, (javaPlugin) -> project.getPlugins()
+				.withType(SpringBootPlugin.class, (bootPlugin) -> configureBootJavaProject(project)));
 	}
 
 	private void configureBootJavaProject(Project project) {
 		LifecycleSmokeTestExtension extension = project.getExtensions()
-				.create("lifecycleSmokeTest", LifecycleSmokeTestExtension.class, project);
+			.create("lifecycleSmokeTest", LifecycleSmokeTestExtension.class, project);
 		extension.getWebApplication().convention(false);
 		extension.getCheckpointEvent().convention("org.springframework.boot.context.event.ApplicationReadyEvent");
 		JavaPluginExtension javaExtension = project.getExtensions().getByType(JavaPluginExtension.class);
@@ -85,8 +85,8 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 			else {
 				Stream<String> includedGroups = Stream.of(fromMavenLocal.split(","));
 				project.getRepositories()
-						.mavenLocal(
-								(mavenLocal) -> mavenLocal.content((content) -> includedGroups.forEach(content::includeGroup)));
+					.mavenLocal((mavenLocal) -> mavenLocal
+						.content((content) -> includedGroups.forEach(content::includeGroup)));
 			}
 		}
 		project.getRepositories().mavenCentral();
@@ -103,7 +103,7 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 		configureKotlin(project, javaExtension);
 		Configuration smokeTests = project.getConfigurations().create("smokeTests");
 		TaskProvider<DescribeSmokeTests> describeSmokeTests = project.getTasks()
-				.register("describeSmokeTests", DescribeSmokeTests.class);
+			.register("describeSmokeTests", DescribeSmokeTests.class);
 		describeSmokeTests.configure((task) -> {
 			task.getOutputDirectory().set(project.getLayout().getBuildDirectory().dir(task.getName()));
 			task.setAppTests(appTest.getAllSource());
@@ -121,29 +121,27 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 	}
 
 	private void configureTests(Project project) {
-		project.getTasks().named(JavaPlugin.TEST_TASK_NAME, Test.class).configure((test) -> {
-			test.useJUnitPlatform();
-		});
+		project.getTasks().named(JavaPlugin.TEST_TASK_NAME, Test.class).configure(Test::useJUnitPlatform);
 	}
 
 	private void configureKotlin(Project project, JavaPluginExtension javaExtension) {
 		project.getTasks()
-				.withType(KotlinJvmCompile.class)
-				.configureEach((kotlinCompile) -> kotlinCompile.getKotlinOptions()
-						.setJvmTarget(javaExtension.getTargetCompatibility().toString()));
+			.withType(KotlinJvmCompile.class)
+			.configureEach((kotlinCompile) -> kotlinCompile.getKotlinOptions()
+				.setJvmTarget(javaExtension.getTargetCompatibility().toString()));
 	}
 
 	private void configureJvmAppTests(Project project, SourceSet sourceSet, LifecycleSmokeTestExtension extension) {
 		Provider<RegularFile> archiveFile = project.getTasks()
-				.named(SpringBootPlugin.BOOT_JAR_TASK_NAME, BootJar.class)
-				.flatMap(BootJar::getArchiveFile);
+			.named(SpringBootPlugin.BOOT_JAR_TASK_NAME, BootJar.class)
+			.flatMap(BootJar::getArchiveFile);
 		configureTasks(project, sourceSet, ApplicationType.JVM, archiveFile, extension);
 	}
 
 	private void configureJvmCrAppTests(Project project, SourceSet sourceSet, LifecycleSmokeTestExtension extension) {
 		Provider<RegularFile> archiveFile = project.getTasks()
-				.named(SpringBootPlugin.BOOT_JAR_TASK_NAME, BootJar.class)
-				.flatMap(BootJar::getArchiveFile);
+			.named(SpringBootPlugin.BOOT_JAR_TASK_NAME, BootJar.class)
+			.flatMap(BootJar::getArchiveFile);
 		configureTasks(project, sourceSet, ApplicationType.JVM_CHECKPOINT_RESTORE, archiveFile, extension);
 	}
 
@@ -153,26 +151,24 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 			case JVM -> "jvmApp";
 			case JVM_CHECKPOINT_RESTORE -> "jvmCrApp";
 		};
-		Provider<Directory> outputDirectory = project.getLayout()
-				.getBuildDirectory()
-				.dir(dir);
-		TaskProvider<? extends StartApplication> startTask = createStartApplicationTask(project, type, applicationBinary,
-				outputDirectory, extension);
+		Provider<Directory> outputDirectory = project.getLayout().getBuildDirectory().dir(dir);
+		TaskProvider<? extends StartApplication> startTask = createStartApplicationTask(project, type,
+				applicationBinary, outputDirectory, extension);
 		TaskProvider<? extends StartApplication> checkpointTask = null;
 		if (type == ApplicationType.JVM_CHECKPOINT_RESTORE) {
 			checkpointTask = startTask;
 			startTask = createRestoreApplicationTask(project, applicationBinary, outputDirectory, startTask, extension);
 		}
 		TaskProvider<StopApplication> stopTask = createStopApplicationTask(project, type, startTask);
-		TaskProvider<AppTest> appTestTask = createAppTestTask(project, appTest, type, checkpointTask, startTask, stopTask);
+		TaskProvider<AppTest> appTestTask = createAppTestTask(project, appTest, type, checkpointTask, startTask,
+				stopTask);
 		configureDockerComposeIfNecessary(project, type, checkpointTask, startTask, appTestTask, stopTask);
 		return appTestTask;
 	}
 
 	private void configureDockerComposeIfNecessary(Project project, ApplicationType type,
-			TaskProvider<? extends StartApplication> checkpointTask,
-			TaskProvider<? extends StartApplication> startTask, TaskProvider<AppTest> appTestTask,
-			TaskProvider<StopApplication> stopTask) {
+			TaskProvider<? extends StartApplication> checkpointTask, TaskProvider<? extends StartApplication> startTask,
+			TaskProvider<AppTest> appTestTask, TaskProvider<StopApplication> stopTask) {
 		if (!project.file("docker-compose.yml").canRead()) {
 			return;
 		}
@@ -182,19 +178,18 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 		String composeUpTaskName = composeSettings.getNestedName() + "ComposeUp";
 		String composeDownTaskName = composeSettings.getNestedName() + "ComposeDown";
 		project.getTasks()
-				.named(composeUpTaskName)
-				.configure((composeUp) -> composeUp.finalizedBy(composeDownTaskName));
+			.named(composeUpTaskName)
+			.configure((composeUp) -> composeUp.finalizedBy(composeDownTaskName));
 		if (checkpointTask != null) {
-			checkpointTask.configure((start) -> {
-				start.getInternalEnvironment().putAll(environment(project, composeSettings));
-			});
+			checkpointTask
+				.configure((start) -> start.getInternalEnvironment().putAll(environment(project, composeSettings)));
 		}
 		startTask.configure((start) -> {
 			start.dependsOn(composeUpTaskName);
 			start.getInternalEnvironment().putAll(environment(project, composeSettings));
 		});
 		appTestTask
-				.configure((appTest) -> appTest.getInternalEnvironment().putAll(environment(project, composeSettings)));
+			.configure((appTest) -> appTest.getInternalEnvironment().putAll(environment(project, composeSettings)));
 		project.getTasks().named(composeDownTaskName).configure((composeDown) -> composeDown.mustRunAfter(stopTask));
 	}
 
@@ -205,7 +200,7 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 				String name = serviceName.toUpperCase(Locale.ENGLISH);
 				environment.put(name + "_HOST", service.getHost());
 				service.getTcpPorts()
-						.forEach((source, target) -> environment.put(name + "_PORT_" + source, Integer.toString(target)));
+					.forEach((source, target) -> environment.put(name + "_PORT_" + source, Integer.toString(target)));
 			});
 			return environment;
 		});
@@ -214,21 +209,22 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 	private TaskProvider<? extends StartApplication> createRestoreApplicationTask(Project project,
 			Provider<RegularFile> applicationBinary, Provider<Directory> outputDirectory,
 			TaskProvider<? extends StartApplication> startTask, LifecycleSmokeTestExtension extension) {
-		TaskProvider<? extends StartApplication> restoreTask = project.getTasks().register("restoreApp", RestoreJvmApplication.class, (restore) -> {
-			restore.getApplicationBinary().set(applicationBinary);
-			restore.getOutputDirectory().set(outputDirectory);
-			restore.setDescription("Restore the application.");
-			restore.getWebApplication().convention(extension.getWebApplication());
-		});
-		restoreTask.configure(restore -> {
+		TaskProvider<? extends StartApplication> restoreTask = project.getTasks()
+			.register("restoreApp", RestoreJvmApplication.class, (restore) -> {
+				restore.getApplicationBinary().set(applicationBinary);
+				restore.getOutputDirectory().set(outputDirectory);
+				restore.setDescription("Restore the application.");
+				restore.getWebApplication().convention(extension.getWebApplication());
+			});
+		restoreTask.configure((restore) -> {
 			restore.dependsOn(startTask);
 			// Delay needed to let the time for CRaC files to be created
-			restore.doFirst(action -> {
+			restore.doFirst((action) -> {
 				try {
 					Thread.sleep(10000);
 				}
-				catch (InterruptedException e) {
-					throw new RuntimeException(e);
+				catch (InterruptedException ex) {
+					throw new RuntimeException(ex);
 				}
 			});
 		});
@@ -242,10 +238,10 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 			case JVM_CHECKPOINT_RESTORE -> "stopCrApp";
 		};
 		TaskProvider<StopApplication> stopTask = project.getTasks()
-				.register(taskName, StopApplication.class, (stop) -> {
-					stop.getPidFile().set(startTask.flatMap(StartApplication::getPidFile));
-					stop.setDescription("Stops the " + type.description + " application.");
-				});
+			.register(taskName, StopApplication.class, (stop) -> {
+				stop.getPidFile().set(startTask.flatMap(StartApplication::getPidFile));
+				stop.setDescription("Stops the " + type.description + " application.");
+			});
 		startTask.configure((start) -> start.finalizedBy(stopTask));
 		return stopTask;
 	}
@@ -269,8 +265,8 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 	}
 
 	private TaskProvider<AppTest> createAppTestTask(Project project, SourceSet source, ApplicationType type,
-			TaskProvider<? extends StartApplication> checkpointTask,
-			TaskProvider<? extends StartApplication> startTask, TaskProvider<StopApplication> stopTask) {
+			TaskProvider<? extends StartApplication> checkpointTask, TaskProvider<? extends StartApplication> startTask,
+			TaskProvider<StopApplication> stopTask) {
 		String taskName = switch (type) {
 			case JVM -> "appTest";
 			case JVM_CHECKPOINT_RESTORE -> "checkpointRestoreAppTest";
@@ -282,8 +278,8 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 			task.setTestClassesDirs(source.getOutput().getClassesDirs());
 			task.setClasspath(source.getRuntimeClasspath());
 			task.getInputs()
-					.file(startTask.flatMap(StartApplication::getApplicationBinary))
-					.withPropertyName("applicationBinary");
+				.file(startTask.flatMap(StartApplication::getApplicationBinary))
+				.withPropertyName("applicationBinary");
 			task.systemProperty("org.springframework.lifecycle.smoketest.standard-output",
 					startTask.get().getOutputFile().get().getAsFile().getAbsolutePath());
 			if (checkpointTask != null && checkpointTask.isPresent()) {
@@ -303,7 +299,8 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 	private enum ApplicationType {
 
 		JVM("JVM", StartJvmApplication.class),
-		JVM_CHECKPOINT_RESTORE("JVM checkpoint/restore", StartAndCheckpointJvmApplication.class);;
+
+		JVM_CHECKPOINT_RESTORE("JVM checkpoint/restore", StartAndCheckpointJvmApplication.class);
 
 		private final String description;
 
