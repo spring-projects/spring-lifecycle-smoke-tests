@@ -79,7 +79,7 @@ public abstract class UpdateStatusPage extends DefaultTask {
 			content.add("");
 			for (SmokeTest test : tests) {
 				String name = test.name();
-				String workflowUrl = workflowUrl(generation, name);
+				String workflowUrl = workflowUrl(generation, group, name);
 				content.add("|" + testUrl(group, name) + "[" + name + "]");
 				content.add("| image:%s/badge.svg[\"Status\", link=\"%s\"]".formatted(workflowUrl, workflowUrl));
 				content.add("");
@@ -89,9 +89,9 @@ public abstract class UpdateStatusPage extends DefaultTask {
 		});
 	}
 
-	private String workflowUrl(String generation, String name) {
-		return "https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/%s-%s.yml"
-			.formatted(generation, name);
+	private String workflowUrl(String generation, String group, String name) {
+		return "https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/%s-%s-%s.yml"
+			.formatted(generation, group, name);
 	}
 
 	private String capitalize(String input) {
