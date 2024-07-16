@@ -1,0 +1,11 @@
+plugins {
+	id "org.springframework.lifecycle.smoke-test-ci"
+}
+
+smokeTests {
+	'3.3.x' {
+		branch = 'main'
+		location = "../main"
+		cronSchedule = "10 0 * * *"
+	}
+}
