@@ -1,0 +1,21 @@
+name: Send notification
+description: Sends a Google Chat message as a notification of the job's outcome
+inputs:
+  branch:
+    description: 'The branch on which the failure occurred'
+    required: true
+  failure-url:
+    description: 'The URL to use to link to the failure'
+    required: true
+  task:
+    description: 'The task that has failed'
+    required: true
+  webhook-url:
+    description: 'Google Chat Webhook URL'
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        curl -s -o /dev/null -X POST '${{ inputs.webhook-url }}' -H 'Content-Type: application/json' -d '{ text: "<users/all> ${{ inputs.task }} <${{ inputs.failure-url }}|failed> on ${{ inputs.branch }} "}' || true
