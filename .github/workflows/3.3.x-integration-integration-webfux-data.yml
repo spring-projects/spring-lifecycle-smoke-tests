@@ -1,0 +1,24 @@
+name: 3.3.x | Integration Smoke Tests | Integration Webfux Data
+on:
+  schedule:
+    - cron : '10 0 * * *'
+  workflow_dispatch:
+jobs:
+  integration_webfux_data_app_test:
+    name: Integration Webfux Data App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: integration:integration-webfux-data
+      task: appTest
+  integration_webfux_data_checkpoint_restore_app_test:
+    name: Integration Webfux Data Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: integration:integration-webfux-data
+      task: checkpointRestoreAppTest

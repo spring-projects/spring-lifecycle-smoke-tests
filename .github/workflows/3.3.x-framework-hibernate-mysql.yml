@@ -1,0 +1,24 @@
+name: 3.3.x | Framework Smoke Tests | Hibernate Mysql
+on:
+  schedule:
+    - cron : '10 0 * * *'
+  workflow_dispatch:
+jobs:
+  hibernate_mysql_app_test:
+    name: Hibernate Mysql App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: framework:hibernate-mysql
+      task: appTest
+  hibernate_mysql_checkpoint_restore_app_test:
+    name: Hibernate Mysql Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: framework:hibernate-mysql
+      task: checkpointRestoreAppTest

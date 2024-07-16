@@ -1,0 +1,24 @@
+name: 3.3.x | Integration Smoke Tests | Spring Kafka Avro
+on:
+  schedule:
+    - cron : '10 0 * * *'
+  workflow_dispatch:
+jobs:
+  spring_kafka_avro_app_test:
+    name: Spring Kafka Avro App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: integration:spring-kafka-avro
+      task: appTest
+  spring_kafka_avro_checkpoint_restore_app_test:
+    name: Spring Kafka Avro Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: integration:spring-kafka-avro
+      task: checkpointRestoreAppTest

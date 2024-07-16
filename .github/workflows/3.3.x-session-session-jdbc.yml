@@ -1,0 +1,24 @@
+name: 3.3.x | Session Smoke Tests | Session Jdbc
+on:
+  schedule:
+    - cron : '10 0 * * *'
+  workflow_dispatch:
+jobs:
+  session_jdbc_app_test:
+    name: Session Jdbc App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: session:session-jdbc
+      task: appTest
+  session_jdbc_checkpoint_restore_app_test:
+    name: Session Jdbc Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: session:session-jdbc
+      task: checkpointRestoreAppTest

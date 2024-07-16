@@ -1,0 +1,33 @@
+name: 3.3.x | Cloud Smoke Tests | Context Refresh Http
+on:
+  schedule:
+    - cron : '10 0 * * *'
+  workflow_dispatch:
+jobs:
+  context_refresh_http_test:
+    name: Context Refresh Http Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: cloud:context-refresh-http
+      task: test
+  context_refresh_http_app_test:
+    name: Context Refresh Http App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: cloud:context-refresh-http
+      task: appTest
+  context_refresh_http_checkpoint_restore_app_test:
+    name: Context Refresh Http Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: cloud:context-refresh-http
+      task: checkpointRestoreAppTest

@@ -1,0 +1,24 @@
+name: 3.3.x | Security Smoke Tests | Security Webflux
+on:
+  schedule:
+    - cron : '10 0 * * *'
+  workflow_dispatch:
+jobs:
+  security_webflux_app_test:
+    name: Security Webflux App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: security:security-webflux
+      task: appTest
+  security_webflux_checkpoint_restore_app_test:
+    name: Security Webflux Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: security:security-webflux
+      task: checkpointRestoreAppTest

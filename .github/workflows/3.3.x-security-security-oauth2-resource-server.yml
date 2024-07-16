@@ -1,0 +1,24 @@
+name: 3.3.x | Security Smoke Tests | Security Oauth2 Resource Server
+on:
+  schedule:
+    - cron : '10 0 * * *'
+  workflow_dispatch:
+jobs:
+  security_oauth2_resource_server_app_test:
+    name: Security Oauth2 Resource Server App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: security:security-oauth2-resource-server
+      task: appTest
+  security_oauth2_resource_server_checkpoint_restore_app_test:
+    name: Security Oauth2 Resource Server Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: security:security-oauth2-resource-server
+      task: checkpointRestoreAppTest

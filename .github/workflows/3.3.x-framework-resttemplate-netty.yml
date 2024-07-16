@@ -1,0 +1,24 @@
+name: 3.3.x | Framework Smoke Tests | Resttemplate Netty
+on:
+  schedule:
+    - cron : '10 0 * * *'
+  workflow_dispatch:
+jobs:
+  resttemplate_netty_app_test:
+    name: Resttemplate Netty App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: framework:resttemplate-netty
+      task: appTest
+  resttemplate_netty_checkpoint_restore_app_test:
+    name: Resttemplate Netty Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: framework:resttemplate-netty
+      task: checkpointRestoreAppTest
