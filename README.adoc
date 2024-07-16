@@ -1,7 +1,5 @@
 = Spring Lifecycle Smoke Tests
 
-image:https://img.shields.io/badge/3.3.x-status-blue["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/blob/main/STATUS.adoc"] image:https://img.shields.io/badge/Revved%20up%20by-Develocity-06A0CE?logo=Gradle&labelColor=02303A["Revved up by Develocity", link="https://ge.spring.io/scans?search.rootProjectNames=spring-lifecycle-smoke-tests"]
-
 A suite of tests and documentation for Spring Boot applications using a custom lifecycle to perform a training run with
 https://docs.spring.io/spring-framework/reference/integration/cds.html[CDS] or
 https://docs.spring.io/spring-framework/reference/integration/checkpoint-restore.html[JVM Checkpoint Restore].
@@ -87,7 +85,7 @@ for example
 
 1. Create a new directory for your smoke test in the appropriate group
 2. Include the directory in `settings.gradle` (new groups only)
-3. Run `./gradlew updateInfrastructure` to add the smoke test to the status page and CI pipeline
+3. Consult the https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/ci/README.adoc[README in the `ci` branch] to update the CI infrastructure
 
 ==== Test against local changes
 
