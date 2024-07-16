@@ -18,8 +18,8 @@ pluginManagement {
 }
 
 plugins {
-	id "com.gradle.enterprise" version "3.12.6"
-	id "io.spring.ge.conventions" version "0.0.13"
+	id "com.gradle.develocity" version "3.17.3"
+	id "io.spring.ge.conventions" version "0.0.17"
 }
 
 rootProject.name="spring-lifecycle-smoke-tests"
@@ -30,5 +30,11 @@ include "lifecycle-listener"
 ["boot", "cloud", "data", "framework", "integration", "security", "session"].each { group ->
 	file(group).eachDirMatch(~/[a-z].*/) { smokeTest ->
 		include "$group:${smokeTest.name}"
+	}
+}
+
+develocity {
+	buildScan {
+		value("Spring Boot generation", "${springBootGeneration}")
 	}
 }
