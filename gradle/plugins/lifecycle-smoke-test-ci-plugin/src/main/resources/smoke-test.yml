@@ -36,8 +36,8 @@ jobs:
           distribution: 'zulu'
       - name: Set Up CRIU
         run: |
-          sudo chown root:root $(find /opt/hostedtoolcache -name criu -type f)
-          sudo chmod +s $(find /opt/hostedtoolcache -name criu -type f)
+          sudo chown root:root $JAVA_HOME/lib/criu
+          sudo chmod +s $JAVA_HOME/lib/criu
       - name: Set Up Gradle
         uses: gradle/actions/setup-gradle@d9c87d481d55275bb5441eef3fe0e46805f9ef70 # v3.5.0
       - name: Configure Gradle user.name
