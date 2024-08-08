@@ -162,7 +162,7 @@ class ActuatorWebFluxApplicationAotTests {
 			.consumeWith((result) -> assertThat(new String(result.getResponseBodyContent()))
 				// Check custom timer
 				.contains("custom_timer_seconds_max 5.0")
-				.contains("custom_timer_seconds_count 1.0")
+				.contains("custom_timer_seconds_count 1")
 				.contains("custom_timer_seconds_sum 5.0")
 				// Check JVM metric
 				.contains("# TYPE jvm_threads_peak_threads gauge"));
