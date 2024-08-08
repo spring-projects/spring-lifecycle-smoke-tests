@@ -40,7 +40,7 @@ dependencies {
 	compileOnly("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
 	compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
 
-	implementation("com.avast.gradle:gradle-docker-compose-plugin:0.16.8")
+	implementation("com.avast.gradle:gradle-docker-compose-plugin:0.17.7")
 }
 
 sourceCompatibility = "17"
