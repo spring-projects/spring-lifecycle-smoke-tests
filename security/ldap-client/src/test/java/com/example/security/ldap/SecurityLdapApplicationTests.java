@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -22,16 +23,16 @@ public class SecurityLdapApplicationTests {
 	@Test
 	void rootWhenAuthenticatedThenSaysHelloUser() throws Exception {
 		// @formatter:off
-		this.mvc.perform(get("/")
+		this.mvc.perform(get("/users")
 						.with(httpBasic("user", "password")))
-				.andExpect(content().string("Hello, user!"));
+				.andExpect(content().string(containsString("Rod Johnson")));
 		// @formatter:on
 	}
 
 	@Test
 	void rootWhenUnauthenticatedThen401() throws Exception {
 		// @formatter:off
-		this.mvc.perform(get("/"))
+		this.mvc.perform(get("/users"))
 				.andExpect(status().isUnauthorized());
 		// @formatter:on
 	}
@@ -39,7 +40,7 @@ public class SecurityLdapApplicationTests {
 	@Test
 	void tokenWhenBadCredentialsThen401() throws Exception {
 		// @formatter:off
-		this.mvc.perform(get("/")
+		this.mvc.perform(get("/users")
 						.with(httpBasic("user", "passwerd")))
 				.andExpect(status().isUnauthorized());
 		// @formatter:on
