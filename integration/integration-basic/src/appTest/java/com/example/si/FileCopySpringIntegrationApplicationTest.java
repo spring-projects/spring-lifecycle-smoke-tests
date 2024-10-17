@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.UUID;
 
@@ -51,7 +52,7 @@ public class FileCopySpringIntegrationApplicationTest {
 
 	private static String tempFolder(String suffix) {
 		String tmpDirsLocation = System.getProperty("java.io.tmpdir");
-		return tmpDirsLocation + suffix;
+		return Paths.get(tmpDirsLocation, suffix).toString();
 	}
 
 	private static void writeFile(String fileBody, String filePath) {
