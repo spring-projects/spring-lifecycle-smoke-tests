@@ -16,6 +16,7 @@
 package com.example.si;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -90,7 +91,7 @@ public class FileCopySpringIntegrationApplication {
 
 	private static String tempFolder(String suffix) {
 		String tmpDirsLocation = System.getProperty("java.io.tmpdir");
-		return tmpDirsLocation + suffix;
+		return Paths.get(tmpDirsLocation, suffix).toString();
 	}
 
 }
