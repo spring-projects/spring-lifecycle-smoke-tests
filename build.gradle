@@ -16,6 +16,8 @@ plugins {
 subprojects {
 	plugins.withType(JavaPlugin) {
 		plugins.apply("io.spring.javaformat")
+		sourceCompatibility = "17"
+		targetCompatibility = "17"
 	}
 	if (!buildDir.toString().startsWith(project.rootDir.toString())) {
 		buildDir = "$buildDir/$project.name"
