@@ -1,0 +1,21 @@
+{
+	"name": "Java",
+
+	// Run ./run-dev-container.sh first to create the image
+	"image": "spring-checkpoint-restore-smoke-tests-dev",
+
+	"runArgs": ["--privileged", 
+	"-v", 
+	"${env:HOME}/.m2:/root/.m2:ro", 
+	"--mount",
+	"type=bind,source=${env:HOME}/.gradle,target=/root/.gradle",
+	"--env",
+	"GRADLE_USER_HOME=/root/.gradle"],
+
+	"postCreateCommand": "bash -c '. /docker-lib.sh && start_docker'",
+
+	"extensions": [
+		"vscjava.vscode-java-pack"
+	]
+
+}
