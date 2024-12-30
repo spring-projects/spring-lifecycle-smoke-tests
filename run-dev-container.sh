@@ -49,6 +49,6 @@ done
 docker image ls | grep spring-lifecycle-smoke-tests-dev >/dev/null 2>&1 || export REBUILD=true
 
 test "$REBUILD" = false || docker build \
-  -t spring-lifecycle-smoke-tests-dev -f $HOST_WORK_DIR/ci/images/ci-image/Dockerfile $HOST_WORK_DIR/ci/images
+  -t spring-lifecycle-smoke-tests-dev -f $HOST_WORK_DIR/images/Dockerfile $HOST_WORK_DIR/images
 
 docker run -it --rm --entrypoint /bin/bash --privileged -v $HOME/.m2:/root/.m2:ro -v $HOST_WORK_DIR:$CONTAINER_WORK_DIR:delegated -w $CONTAINER_WORK_DIR spring-lifecycle-smoke-tests-dev -c 'source /docker-lib.sh && start_docker && bash'
