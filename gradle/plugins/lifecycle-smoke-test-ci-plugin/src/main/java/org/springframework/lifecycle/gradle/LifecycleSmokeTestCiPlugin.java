@@ -19,6 +19,7 @@ package org.springframework.lifecycle.gradle;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,7 +89,9 @@ public class LifecycleSmokeTestCiPlugin implements Plugin<Project> {
 
 	private List<SmokeTest> loadSmokeTests(String location) {
 		File[] smokeTests = new File(location + "/build/smoke-tests").listFiles();
-		return Stream.of(smokeTests).map(this::load).map(SmokeTest::new).toList();
+		return (smokeTests == null ?
+				Collections.emptyList() :
+				Stream.of(smokeTests).map(this::load).map(SmokeTest::new).toList());
 	}
 
 	private Properties load(File file) {
