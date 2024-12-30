@@ -10,7 +10,7 @@ jobs:
     secrets: inherit
     with:
       checkout_repository: spring-projects/spring-lifecycle-smoke-tests
-      checkout_ref: main
+      checkout_ref: 3.3.x
       project: framework:webflux-netty
       task: test
   webflux_netty_app_test:
@@ -19,7 +19,7 @@ jobs:
     secrets: inherit
     with:
       checkout_repository: spring-projects/spring-lifecycle-smoke-tests
-      checkout_ref: main
+      checkout_ref: 3.3.x
       project: framework:webflux-netty
       task: appTest
   webflux_netty_checkpoint_restore_app_test:
@@ -28,6 +28,6 @@ jobs:
     secrets: inherit
     with:
       checkout_repository: spring-projects/spring-lifecycle-smoke-tests
-      checkout_ref: main
+      checkout_ref: 3.3.x
       project: framework:webflux-netty
       task: checkpointRestoreAppTest

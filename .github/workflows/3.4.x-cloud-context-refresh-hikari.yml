@@ -1,0 +1,24 @@
+name: 3.4.x | Cloud Smoke Tests | Context Refresh Hikari
+on:
+  schedule:
+    - cron : '20 0 * * *'
+  workflow_dispatch:
+jobs:
+  context_refresh_hikari_app_test:
+    name: Context Refresh Hikari App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: cloud:context-refresh-hikari
+      task: appTest
+  context_refresh_hikari_checkpoint_restore_app_test:
+    name: Context Refresh Hikari Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: cloud:context-refresh-hikari
+      task: checkpointRestoreAppTest

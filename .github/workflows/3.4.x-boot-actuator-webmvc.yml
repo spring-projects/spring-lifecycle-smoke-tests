@@ -1,0 +1,24 @@
+name: 3.4.x | Boot Smoke Tests | Actuator Webmvc
+on:
+  schedule:
+    - cron : '20 0 * * *'
+  workflow_dispatch:
+jobs:
+  actuator_webmvc_app_test:
+    name: Actuator Webmvc App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: boot:actuator-webmvc
+      task: appTest
+  actuator_webmvc_checkpoint_restore_app_test:
+    name: Actuator Webmvc Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: boot:actuator-webmvc
+      task: checkpointRestoreAppTest

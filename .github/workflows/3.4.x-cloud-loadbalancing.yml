@@ -1,0 +1,24 @@
+name: 3.4.x | Cloud Smoke Tests | Loadbalancing
+on:
+  schedule:
+    - cron : '20 0 * * *'
+  workflow_dispatch:
+jobs:
+  loadbalancing_app_test:
+    name: Loadbalancing App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: cloud:loadbalancing
+      task: appTest
+  loadbalancing_checkpoint_restore_app_test:
+    name: Loadbalancing Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: cloud:loadbalancing
+      task: checkpointRestoreAppTest

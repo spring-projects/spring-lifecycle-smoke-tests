@@ -1,0 +1,33 @@
+name: 3.4.x | Framework Smoke Tests | Webflux Undertow
+on:
+  schedule:
+    - cron : '20 0 * * *'
+  workflow_dispatch:
+jobs:
+  webflux_undertow_test:
+    name: Webflux Undertow Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: framework:webflux-undertow
+      task: test
+  webflux_undertow_app_test:
+    name: Webflux Undertow App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: framework:webflux-undertow
+      task: appTest
+  webflux_undertow_checkpoint_restore_app_test:
+    name: Webflux Undertow Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: framework:webflux-undertow
+      task: checkpointRestoreAppTest

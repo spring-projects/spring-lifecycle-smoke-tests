@@ -1,0 +1,24 @@
+name: 3.4.x | Integration Smoke Tests | Integration Basic
+on:
+  schedule:
+    - cron : '20 0 * * *'
+  workflow_dispatch:
+jobs:
+  integration_basic_app_test:
+    name: Integration Basic App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: integration:integration-basic
+      task: appTest
+  integration_basic_checkpoint_restore_app_test:
+    name: Integration Basic Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: integration:integration-basic
+      task: checkpointRestoreAppTest

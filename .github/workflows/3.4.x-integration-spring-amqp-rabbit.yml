@@ -1,0 +1,24 @@
+name: 3.4.x | Integration Smoke Tests | Spring Amqp Rabbit
+on:
+  schedule:
+    - cron : '20 0 * * *'
+  workflow_dispatch:
+jobs:
+  spring_amqp_rabbit_app_test:
+    name: Spring Amqp Rabbit App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: integration:spring-amqp-rabbit
+      task: appTest
+  spring_amqp_rabbit_checkpoint_restore_app_test:
+    name: Spring Amqp Rabbit Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: integration:spring-amqp-rabbit
+      task: checkpointRestoreAppTest

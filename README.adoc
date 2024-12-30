@@ -27,6 +27,7 @@ The workflows can be updated automatically but doing so relies upon a particular
 [source,]
 ----
 spring-lifecycle-smoke-tests
+├── 3.3.x
 ├── ci
 └── main
 ----
@@ -45,11 +46,12 @@ git clone https://github.com/spring-projects/spring-lifecycle-smoke-tests ci
 cd ci
 ----
 
-Now, create worktrees for the `main` branch:
+Now, create worktrees for the `3.3.x` and `main` branches:
 
 [source,]
 ----
 git worktree add ../main main
+git worktree add ../3.3.x 3.3.x
 ----
 
 === Updating the Workflows

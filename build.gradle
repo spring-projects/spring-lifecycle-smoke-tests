@@ -4,8 +4,13 @@ plugins {
 
 smokeTests {
 	'3.3.x' {
+		branch = '3.3.x'
+		location = "../3.3.x"
+		cronSchedule = "10 0 * * *"
+	}
+	'3.4.x' {
 		branch = 'main'
 		location = "../main"
-		cronSchedule = "10 0 * * *"
+		cronSchedule = "20 0 * * *"
 	}
 }

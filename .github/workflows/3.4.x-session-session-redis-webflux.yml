@@ -1,0 +1,24 @@
+name: 3.4.x | Session Smoke Tests | Session Redis Webflux
+on:
+  schedule:
+    - cron : '20 0 * * *'
+  workflow_dispatch:
+jobs:
+  session_redis_webflux_app_test:
+    name: Session Redis Webflux App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: session:session-redis-webflux
+      task: appTest
+  session_redis_webflux_checkpoint_restore_app_test:
+    name: Session Redis Webflux Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: session:session-redis-webflux
+      task: checkpointRestoreAppTest

@@ -1,0 +1,33 @@
+name: 3.4.x | Security Smoke Tests | Ldap Client
+on:
+  schedule:
+    - cron : '20 0 * * *'
+  workflow_dispatch:
+jobs:
+  ldap_client_test:
+    name: Ldap Client Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: security:ldap-client
+      task: test
+  ldap_client_app_test:
+    name: Ldap Client App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: security:ldap-client
+      task: appTest
+  ldap_client_checkpoint_restore_app_test:
+    name: Ldap Client Checkpoint Restore App Test
+    uses: ./.github/workflows/smoke-test.yml
+    secrets: inherit
+    with:
+      checkout_repository: spring-projects/spring-lifecycle-smoke-tests
+      checkout_ref: main
+      project: security:ldap-client
+      task: checkpointRestoreAppTest
