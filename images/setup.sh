@@ -45,10 +45,11 @@ chmod +x /bin/docker*
 ###########################################################
 # DOCKER COMPOSE
 ###########################################################
-mkdir -p /opt/docker-compose/bin
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
 DOCKER_COMPOSE_URL=$( ./get-docker-compose-url.sh )
-curl --location $DOCKER_COMPOSE_URL > /opt/docker-compose/bin/docker-compose
-chmod +x /opt/docker-compose/bin/docker-compose
+curl -SL $DOCKER_COMPOSE_URL -o $DOCKER_CONFIG/cli-plugins/docker-compose
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 
 ###########################################################
 # GRADLE
