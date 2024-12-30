@@ -51,21 +51,21 @@ Please read and follow the link:CONTRIBUTING.adoc[contributing guide].
 
 [source,]
 ----
-./gradlew :<name of the group>:<name of the smoke test>:build
+gradle :<name of the group>:<name of the smoke test>:build
 ----
 
 for example
 
 [source,]
 ----
-./gradlew :framework:webmvc-tomcat:build
+gradle :framework:webmvc-tomcat:build
 ----
 
 ==== Run a specific type of tests for a project
 
 [source,]
 ----
-./gradlew :<name of the group>:<name of the smoke test>:<test task name>
+gradle :<name of the group>:<name of the smoke test>:<test task name>
 ----
 
 Valid test task names are:
@@ -78,7 +78,7 @@ for example
 
 [source,]
 ----
-./gradlew :framework:webmvc-tomcat:appTest
+gradle :framework:webmvc-tomcat:appTest
 ----
 
 ==== Add a new smoke test
@@ -93,7 +93,7 @@ for example
 
 [source,]
 ----
-./gradlew :<name of the group>:<name of the smoke test>:build --include-build /path/to/your/project
+gradle :<name of the group>:<name of the smoke test>:build --include-build /path/to/your/project
 ----
 
 Gradle https://docs.gradle.org/current/userguide/composite_builds.html#command_line_composite[will then substitute the dependency] with your provided version.
@@ -108,7 +108,7 @@ optional comma-separated list of group IDs:
 
 [source,]
 ----
-./gradlew :framework:webmvc-tomcat:build -PfromMavenLocal=org.springframework
+gradle :framework:webmvc-tomcat:build -PfromMavenLocal=org.springframework
 ----
 
 The preceding example will run the `webmvc-tomcat` smoke test, resolving Spring Framework from your local Maven cache.
@@ -116,7 +116,7 @@ The preceding example will run the `webmvc-tomcat` smoke test, resolving Spring 
 You can also just specify:
 [source,]
 ----
-./gradlew :framework:webmvc-tomcat:build -PfromMavenLocal
+gradle :framework:webmvc-tomcat:build -PfromMavenLocal
 ----
 
 Here all the dependencies will be resolved from your local Maven cache.
