@@ -52,16 +52,17 @@ jobs:
         continue-on-error: ${{ inputs.expected_to_fail }}
       - name: Check Out Send Notification Action
         uses: actions/checkout@v4
-        if: ${{ failure() }}
+        if: ${{ failure() || (steps.build.outcome == 'success' && inputs.expected_to_fail)}}
         with:
           path: ci
           ref: ci
           sparse-checkout: .github/actions/send-notification
       - name: Send notification
         uses: ./ci/.github/actions/send-notification
-        if: ${{ failure() }}
+        if: ${{ failure() || (steps.build.outcome == 'success' && inputs.expected_to_fail)}}
         with:
           webhook-url: ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
           task: ${{ inputs.project }}:${{ inputs.task }}
           branch: ${{ inputs.checkout_ref }}
           failure-url: ${{ steps.build.outputs.build-scan-url || format('{0}/{1}/actions/runs/{2}', github.server_url, github.repository, github.run_id) }}
+          outcome-description: ${{ inputs.expected_to_fail && 'passed unexpectedly' || 'failed' }}
