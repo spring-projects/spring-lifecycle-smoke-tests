@@ -23,4 +23,10 @@ dependencies {
 
 lifecycleSmokeTest {
 	webApplication = true
+
+	checkpointRestoreAppTest {
+		expectedToFail {
+			becauseOf "CRIU error: Unable to create a veth pair: -95"
+		}
+	}
 }
