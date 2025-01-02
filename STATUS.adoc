@@ -6,6 +6,330 @@ Check each test for potential configuration guidance.
 :toc-title: 3.3.x Projects
 == 3.3.x Projects
 
+=== Boot
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/boot/actuator-webflux[actuator-webflux]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-boot-actuator-webflux.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-boot-actuator-webflux.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/boot/actuator-webmvc[actuator-webmvc]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-boot-actuator-webmvc.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-boot-actuator-webmvc.yml"]
+
+|===
+
+=== Cloud
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/context-refresh[context-refresh]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-cloud-context-refresh.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-cloud-context-refresh.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/context-refresh-hikari[context-refresh-hikari]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-cloud-context-refresh-hikari.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-cloud-context-refresh-hikari.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/context-refresh-http[context-refresh-http]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-cloud-context-refresh-http.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-cloud-context-refresh-http.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/loadbalancing[loadbalancing]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-cloud-loadbalancing.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-cloud-loadbalancing.yml"]
+
+|===
+
+=== Data
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-jdbc[data-jdbc]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-data-data-jdbc.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-data-data-jdbc.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-jpa[data-jpa]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-data-data-jpa.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-data-data-jpa.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-redis[data-redis]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-data-data-redis.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-data-data-redis.yml"]
+
+|===
+
+=== Framework
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/hibernate-mysql[hibernate-mysql]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-hibernate-mysql.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-hibernate-mysql.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/resttemplate-netty[resttemplate-netty]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-resttemplate-netty.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-resttemplate-netty.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/scheduled[scheduled]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-scheduled.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-scheduled.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webclient-netty[webclient-netty]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webclient-netty.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webclient-netty.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webflux-netty[webflux-netty]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webflux-netty.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webflux-netty.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webflux-undertow[webflux-undertow]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webflux-undertow.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webflux-undertow.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webmvc-jetty[webmvc-jetty]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webmvc-jetty.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webmvc-jetty.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webmvc-tomcat[webmvc-tomcat]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webmvc-tomcat.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-framework-webmvc-tomcat.yml"]
+
+|===
+
+=== Integration
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-basic[integration-basic]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-basic.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-basic.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-webfux-data[integration-webfux-data]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-webfux-data.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-webfux-data.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-amqp-rabbit[spring-amqp-rabbit]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-amqp-rabbit.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-amqp-rabbit.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-kafka[spring-kafka]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-kafka.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-kafka.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-kafka-avro[spring-kafka-avro]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-kafka-avro.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-kafka-avro.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-kafka-streams[spring-kafka-streams]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-kafka-streams.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-kafka-streams.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-pulsar[spring-pulsar]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-pulsar.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-pulsar.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-pulsar-reactive[spring-pulsar-reactive]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-pulsar-reactive.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-pulsar-reactive.yml"]
+
+|===
+
+=== Security
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/ldap-client[ldap-client]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-ldap-client.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-ldap-client.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-ldap[security-ldap]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-ldap.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-ldap.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-oauth2-authorization-server[security-oauth2-authorization-server]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-oauth2-authorization-server.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-oauth2-authorization-server.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-oauth2-resource-server[security-oauth2-resource-server]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-oauth2-resource-server.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-oauth2-resource-server.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-webflux[security-webflux]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-webflux.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-webflux.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-webmvc[security-webmvc]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-webmvc.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-security-security-webmvc.yml"]
+
+|===
+
+=== Session
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/session/session-jdbc[session-jdbc]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-session-session-jdbc.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-session-session-jdbc.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/session/session-redis-webflux[session-redis-webflux]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-session-session-redis-webflux.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-session-session-redis-webflux.yml"]
+
+|===
+
 :toc-title: 3.4.x Projects
 == 3.4.x Projects
+
+=== Boot
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/boot/actuator-webflux[actuator-webflux]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-boot-actuator-webflux.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-boot-actuator-webflux.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/boot/actuator-webmvc[actuator-webmvc]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-boot-actuator-webmvc.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-boot-actuator-webmvc.yml"]
+
+|===
+
+=== Cloud
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/context-refresh[context-refresh]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-cloud-context-refresh.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-cloud-context-refresh.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/context-refresh-hikari[context-refresh-hikari]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-cloud-context-refresh-hikari.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-cloud-context-refresh-hikari.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/context-refresh-http[context-refresh-http]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-cloud-context-refresh-http.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-cloud-context-refresh-http.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/cloud/loadbalancing[loadbalancing]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-cloud-loadbalancing.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-cloud-loadbalancing.yml"]
+
+|===
+
+=== Data
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-jdbc[data-jdbc]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-data-data-jdbc.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-data-data-jdbc.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-jpa[data-jpa]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-data-data-jpa.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-data-data-jpa.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/data/data-redis[data-redis]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-data-data-redis.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-data-data-redis.yml"]
+
+|===
+
+=== Framework
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/hibernate-mysql[hibernate-mysql]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-hibernate-mysql.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-hibernate-mysql.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/resttemplate-netty[resttemplate-netty]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-resttemplate-netty.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-resttemplate-netty.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/scheduled[scheduled]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-scheduled.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-scheduled.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webclient-netty[webclient-netty]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webclient-netty.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webclient-netty.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webflux-netty[webflux-netty]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webflux-netty.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webflux-netty.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webflux-undertow[webflux-undertow]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webflux-undertow.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webflux-undertow.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webmvc-jetty[webmvc-jetty]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webmvc-jetty.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webmvc-jetty.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/framework/webmvc-tomcat[webmvc-tomcat]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webmvc-tomcat.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-framework-webmvc-tomcat.yml"]
+
+|===
+
+=== Integration
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-basic[integration-basic]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-basic.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-basic.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-webfux-data[integration-webfux-data]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-webfux-data.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-webfux-data.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-amqp-rabbit[spring-amqp-rabbit]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-amqp-rabbit.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-amqp-rabbit.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-kafka[spring-kafka]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-kafka.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-kafka.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-kafka-avro[spring-kafka-avro]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-kafka-avro.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-kafka-avro.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-kafka-streams[spring-kafka-streams]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-kafka-streams.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-kafka-streams.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-pulsar[spring-pulsar]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-pulsar.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-pulsar.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-pulsar-reactive[spring-pulsar-reactive]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-pulsar-reactive.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-pulsar-reactive.yml"]
+
+|===
+
+=== Security
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/ldap-client[ldap-client]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-ldap-client.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-ldap-client.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-ldap[security-ldap]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-ldap.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-ldap.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-oauth2-authorization-server[security-oauth2-authorization-server]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-oauth2-authorization-server.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-oauth2-authorization-server.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-oauth2-resource-server[security-oauth2-resource-server]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-oauth2-resource-server.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-oauth2-resource-server.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-webflux[security-webflux]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-webflux.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-webflux.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/security/security-webmvc[security-webmvc]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-webmvc.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-security-security-webmvc.yml"]
+
+|===
+
+=== Session
+
+[%header,cols="2"]
+|===
+h|Smoke Test
+h|Status
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/session/session-jdbc[session-jdbc]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-session-session-jdbc.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-session-session-jdbc.yml"]
+
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/session/session-redis-webflux[session-redis-webflux]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-session-session-redis-webflux.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-session-session-redis-webflux.yml"]
+
+|===
 
