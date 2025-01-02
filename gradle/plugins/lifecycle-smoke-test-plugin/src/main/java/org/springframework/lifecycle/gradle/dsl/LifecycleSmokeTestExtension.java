@@ -18,7 +18,9 @@ package org.springframework.lifecycle.gradle.dsl;
 
 import javax.inject.Inject;
 
+import org.gradle.api.Action;
 import org.gradle.api.Project;
+import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.provider.Property;
 
 /**
@@ -33,10 +35,21 @@ public class LifecycleSmokeTestExtension {
 
 	private final Property<String> checkpointEvent;
 
+	private final Expectation appTest;
+
+	private final Expectation checkpointRestoreAppTest;
+
+	private final Expectation test;
+
+
 	@Inject
 	public LifecycleSmokeTestExtension(Project project) {
-		this.webApplication = project.getObjects().property(Boolean.class);
-		this.checkpointEvent = project.getObjects().property(String.class);
+		ObjectFactory objects = project.getObjects();
+		this.webApplication = objects.property(Boolean.class);
+		this.checkpointEvent = objects.property(String.class);
+		this.appTest = objects.newInstance(Expectation.class, project);
+		this.checkpointRestoreAppTest = objects.newInstance(Expectation.class, project);
+		this.test = objects.newInstance(Expectation.class, project);
 	}
 
 	/**
@@ -54,5 +67,79 @@ public class LifecycleSmokeTestExtension {
 	public Property<String> getCheckpointEvent() {
 		return this.checkpointEvent;
 	}
+
+	/**
+	 * Expectations for {@code appTest}.
+	 */
+	public Expectation getAppTest() {
+		return this.appTest;
+	}
+
+	/**
+	 * Configure expectations for {@code appTest}.
+	 */
+	public void appTest(Action<Expectation> action) {
+		action.execute(this.appTest);
+	}
+
+	/**
+	 * Expectations for {@code checkpointRestoreAppTest}.
+	 */
+	public Expectation getCheckpointRestoreAppTest() {
+		return this.checkpointRestoreAppTest;
+	}
+
+	/**
+	 * Configure expectations for {@code checkpointRestoreAppTest}.
+	 */
+	public void checkpointRestoreAppTest(Action<Expectation> action) {
+		action.execute(this.checkpointRestoreAppTest);
+	}
+
+	/**
+	 * Expectations for {@code test}.
+	 */
+	public Expectation getTest() {
+		return this.test;
+	}
+
+	/**
+	 * Configure expectations for {@code test}.
+	 */
+	public void test(Action<Expectation> action) {
+		action.execute(this.test);
+	}
+
+	public static class Expectation {
+		private final Property<Outcome> outcome;
+		@Inject
+		public Expectation(Project project) {
+			this.outcome = project.getObjects().property(Outcome.class);
+			this.outcome.convention(Outcome.SUCCESS);
+		}
+		/**
+		 * The expected outcome.
+		 */
+		public Property<Outcome> getOutcome() {
+			return this.outcome;
+		}
+		/**
+		 * Note that expected outcome is failure
+		 */
+		public void expectedToFail(Action<Object> action) {
+			this.outcome.set(Outcome.FAILURE);
+		}
+	}
+	public static enum Outcome {
+		/**
+		 * The expected outcome is failure.
+		 */
+		FAILURE,
+		/**
+		 * The expected outcome is success.
+		 */
+		SUCCESS
+	}
+
 
 }
