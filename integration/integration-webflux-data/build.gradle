@@ -9,13 +9,6 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-integration")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
-	//NOTE: Netty is not CR compatible at the moment
-	implementation("org.springframework.boot:spring-boot-starter-undertow")
-	modules {
-		module("org.springframework.boot:spring-boot-starter-reactor-netty") {
-			replacedBy("org.springframework.boot:spring-boot-starter-undertow", "Use Undertow instead of Netty")
-		}
-	}
 
 	implementation("org.springframework.integration:spring-integration-webflux")
 	implementation("org.springframework.integration:spring-integration-jdbc")
