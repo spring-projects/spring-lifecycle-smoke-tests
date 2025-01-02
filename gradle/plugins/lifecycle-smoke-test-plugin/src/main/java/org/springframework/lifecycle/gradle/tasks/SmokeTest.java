@@ -17,6 +17,7 @@
 package org.springframework.lifecycle.gradle.tasks;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -30,11 +31,6 @@ import java.util.Properties;
  * @param appTests whether the smoke test contains any app tests
  */
 public record SmokeTest(String name, String group, String path, boolean tests,
-		boolean appTests) implements Serializable {
-
-	SmokeTest(Properties properties) {
-		this(properties.getProperty("name"), properties.getProperty("group"), properties.getProperty("path"),
-				Boolean.valueOf(properties.getProperty("tests")), Boolean.valueOf(properties.getProperty("appTests")));
-	}
+		boolean appTests, List<String> expectedToFail) implements Serializable {
 
 }

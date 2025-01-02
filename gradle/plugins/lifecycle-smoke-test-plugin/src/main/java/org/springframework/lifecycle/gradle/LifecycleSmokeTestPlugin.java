@@ -16,7 +16,9 @@
 
 package org.springframework.lifecycle.gradle;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -50,6 +52,8 @@ import org.springframework.lifecycle.gradle.tasks.StartAndCheckpointJvmApplicati
 import org.springframework.lifecycle.gradle.tasks.StartApplication;
 import org.springframework.lifecycle.gradle.tasks.StartJvmApplication;
 import org.springframework.lifecycle.gradle.tasks.StopApplication;
+
+import static org.springframework.lifecycle.gradle.dsl.LifecycleSmokeTestExtension.*;
 
 /**
  * {@link Plugin} for a lifecycle smoke test project. Configures an {@code appTest} source
@@ -103,16 +107,21 @@ public class LifecycleSmokeTestPlugin implements Plugin<Project> {
 		configureTests(project);
 		configureKotlin(project, javaExtension);
 		Provider<SmokeTest> smokeTestProvider = project.provider(() -> {
-			boolean runTests = false;
-			boolean runAppTests = false;
-			if (!javaExtension.getSourceSets().getByName(SourceSet.TEST_SOURCE_SET_NAME).getAllSource().isEmpty()) {
-				runTests = true;
+			boolean runTests = !javaExtension.getSourceSets().getByName(SourceSet.TEST_SOURCE_SET_NAME).getAllSource().isEmpty();
+			boolean runAppTests = !appTest.getAllSource().isEmpty();
+			List<String> expectedToFail = new ArrayList<>();
+			if (extension.getAppTest().getOutcome().get() == Outcome.FAILURE) {
+				expectedToFail.add("appTest");
 			}
-			if (!appTest.getAllSource().isEmpty()) {
-				runAppTests = true;
+			if (extension.getCheckpointRestoreAppTest().getOutcome().get() == Outcome.FAILURE) {
+				expectedToFail.add("checkpointRestoreAppTest");
 			}
+			if (extension.getTest().getOutcome().get() == Outcome.FAILURE) {
+				expectedToFail.add("test");
+			}
+
 			return new SmokeTest(project.getName(), project.getParent().getName(), project.getPath(), runTests,
-					runAppTests);
+					runAppTests, expectedToFail);
 		});
 		TaskProvider<DescribeSmokeTest> describeSmokeTest = project.getTasks()
 			.register("describeSmokeTest", DescribeSmokeTest.class);
