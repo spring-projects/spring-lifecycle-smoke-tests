@@ -103,8 +103,8 @@ h|Status
 |https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-basic[integration-basic]
 | image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-basic.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-basic.yml"]
 
-|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-webfux-data[integration-webfux-data]
-| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-webfux-data.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-webfux-data.yml"]
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-webflux-data[integration-webflux-data]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-webflux-data.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-integration-webflux-data.yml"]
 
 |https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-amqp-rabbit[spring-amqp-rabbit]
 | image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-amqp-rabbit.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.3.x-integration-spring-amqp-rabbit.yml"]
@@ -268,8 +268,8 @@ h|Status
 |https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-basic[integration-basic]
 | image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-basic.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-basic.yml"]
 
-|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-webfux-data[integration-webfux-data]
-| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-webfux-data.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-webfux-data.yml"]
+|https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/integration-webflux-data[integration-webflux-data]
+| image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-webflux-data.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-integration-webflux-data.yml"]
 
 |https://github.com/spring-projects/spring-lifecycle-smoke-tests/tree/main/integration/spring-amqp-rabbit[spring-amqp-rabbit]
 | image:https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-amqp-rabbit.yml/badge.svg["Status", link="https://github.com/spring-projects/spring-lifecycle-smoke-tests/actions/workflows/3.4.x-integration-spring-amqp-rabbit.yml"]
