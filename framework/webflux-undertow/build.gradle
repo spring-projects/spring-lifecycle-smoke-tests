@@ -26,7 +26,7 @@ lifecycleSmokeTest {
 
 	checkpointRestoreAppTest {
 		expectedToFail {
-			becauseOf "CRIU error: Unable to create a veth pair: -95"
+			becauseOf "https://github.com/spring-projects/spring-boot/issues/43655"
 		}
 	}
 }
