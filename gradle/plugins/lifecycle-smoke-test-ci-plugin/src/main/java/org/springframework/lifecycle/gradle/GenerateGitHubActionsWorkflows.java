@@ -104,6 +104,9 @@ public abstract class GenerateGitHubActionsWorkflows extends DefaultTask {
 		writer.println("      checkout_ref: " + getGitBranch().get());
 		writer.println("      project: " + smokeTest.group() + ":" + smokeTest.name());
 		writer.println("      task: " + taskName);
+		if (smokeTest.expectedToFail().contains(taskName)) {
+			writer.println("      expected_to_fail: true");
+		}
 	}
 
 	private String jobId(String smokeTestName, String taskName) {
